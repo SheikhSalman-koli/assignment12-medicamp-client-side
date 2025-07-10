@@ -33,7 +33,7 @@ const Navber = () => {
                         <Logo></Logo>
                     </div>
                     <div className="dropdown">
-                        <div tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} className="lg:hidden">
                             {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg> */}
                             <Logo></Logo>
                         </div>
@@ -53,8 +53,8 @@ const Navber = () => {
                 <div className="navbar-end">
                     {user ? <>
                         <div className="dropdown">
-                            <div tabIndex={0} className="btn btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+                            <div tabIndex={0}>
+                                <img src={user?.photoURL} className='w-8 h-8 rounded-full' alt="" />
                             </div>
                             <div
                                 tabIndex={0}

@@ -1,13 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
+import { uploadPhoto } from '../../Components/SharedComponents/Utils';
 
 
 
 const Signup = () => {
 
-    const { createUser } = UseAuth()
+    const { createUser , updateUser} = UseAuth()
+    const navigate = useNavigate()
     // console.log(createUser);
 
     const {
@@ -21,16 +23,26 @@ const Signup = () => {
         // console.log('Registration data:', data);
         const name = data?.name
         const email = data?.email
-        // const photo = data?.photo
         const password = data?.password
         console.log(name, email, password);
-
+        const image = data?.photo?.[0]
+        // console.log(image);
+        const photo = await uploadPhoto(image)
         try{
 
             const result = await createUser(email, password)
+            const emailHolder = result?.user
             console.log(result?.user);
 
-            
+            const updatedDoc = {
+                ...emailHolder,
+                displayName: name,
+                photoURL: photo
+            }
+            await updateUser(updatedDoc)
+
+            navigate('/')
+
         } catch (error) {
             console.log(error);
         }
@@ -82,12 +94,13 @@ const Signup = () => {
                     </div>
 
                     {/* Photo URL */}
-                    {/* <div>
+                    <div>
                         <label className="label">
                             <span className="label-text">Photo URL</span>
                         </label>
                         <input
                             type="file"
+                            accept="image/*"
                             {...register('photo', {
                                 required: 'Photo URL is required',
                             })}
@@ -97,7 +110,7 @@ const Signup = () => {
                         {errors.photo && (
                             <p className="text-red-500 text-sm mt-1">{errors.photo.message}</p>
                         )}
-                    </div> */}
+                    </div>
 
                     {/* Password */}
                     <div>
