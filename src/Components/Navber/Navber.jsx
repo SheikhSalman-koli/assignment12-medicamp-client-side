@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router';
 import Logo from '../SharedComponents/Logo';
 import './nav.css'
 import UseAuth from '../../Hooks/useAuth';
+import { RiLogoutCircleRLine } from 'react-icons/ri';
+import Swal from 'sweetalert2';
 
 
 const Navber = () => {
@@ -13,7 +15,7 @@ const Navber = () => {
     const handleLogout = async () => {
         logout()
             .then(() => {
-                alert('logged out successfull')
+                Swal.fire('logged out successfull!')
             }).catch(err => {
                 toast.error(err.message)
             })
@@ -21,12 +23,12 @@ const Navber = () => {
 
 
     const links = <>
-        <NavLink>Home</NavLink>
+        <NavLink to='/'>Home</NavLink>
         <NavLink>Available Camps</NavLink>
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-100 shadow-sm px-4">
                 <div className="navbar-start">
                     {/* <a className="btn btn-ghost text-xl hidden lg:block">logo+name</a> */}
                     <div className="hidden lg:block">
@@ -58,18 +60,19 @@ const Navber = () => {
                             </div>
                             <div
                                 tabIndex={0}
-                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 -ml-24 mr-3 w-35 p-2 shadow"
+                                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 -ml-25 mt-3 w-35 p-2 shadow space-y-3"
                             >
-                                <a>Item 1</a>
+                                <p className='text-[20px]'>{user?.displayName}</p>
+                                <NavLink to='/dashboard'>Dashboard</NavLink>
                                 <button
                                     onClick={handleLogout}
                                     type='submit'
-                                    className='btn'
-                                >Log Out</button>
+                                    className='btn btn-outline text-primary'
+                                >Log out <RiLogoutCircleRLine /></button>
                             </div>
 
                         </div>
-                    </> : <NavLink to='/signin'>Join Us</NavLink>}
+                    </> : <Link to='/signin' className='font-bold'>Join Us</Link>}
 
                 </div>
             </div>

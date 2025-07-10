@@ -2,13 +2,15 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
-import { uploadPhoto } from '../../Components/SharedComponents/Utils';
+import { saveUser, uploadPhoto } from '../../Components/SharedComponents/Utils';
+import SocialLogin from '../../Components/SharedComponents/SocialLogin';
+import Swal from 'sweetalert2';
 
 
 
 const Signup = () => {
 
-    const { createUser , updateUser} = UseAuth()
+    const {user, createUser , updateUser} = UseAuth()
     const navigate = useNavigate()
     // console.log(createUser);
 
@@ -24,15 +26,19 @@ const Signup = () => {
         const name = data?.name
         const email = data?.email
         const password = data?.password
-        console.log(name, email, password);
         const image = data?.photo?.[0]
-        // console.log(image);
         const photo = await uploadPhoto(image)
+
+        // console.log(name, email, password, image, photo);
+        
         try{
 
             const result = await createUser(email, password)
+            if(result){
+                Swal.fire('user logged in successfully!')
+                 navigate('/')
+            }
             const emailHolder = result?.user
-            console.log(result?.user);
 
             const updatedDoc = {
                 ...emailHolder,
@@ -41,7 +47,16 @@ const Signup = () => {
             }
             await updateUser(updatedDoc)
 
-            navigate('/')
+            // save user in DB
+            const userInfo = {
+                name: name,
+                email: email,
+                photo: photo,
+                role: 'user'
+            }
+            await saveUser(userInfo)
+
+           
 
         } catch (error) {
             console.log(error);
@@ -151,6 +166,7 @@ const Signup = () => {
                         Login
                     </Link>
                 </p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
