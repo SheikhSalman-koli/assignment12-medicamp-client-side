@@ -1,8 +1,11 @@
 import React from 'react';
 import Logo from '../Components/SharedComponents/Logo';
 import { Link, Outlet } from 'react-router';
+import useUserRole from '../Hooks/useUserRole';
 
 const DashBoardLayout = () => {
+    const{role}= useUserRole()
+    console.log(role);
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />

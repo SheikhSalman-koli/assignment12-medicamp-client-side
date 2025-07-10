@@ -25,12 +25,12 @@ export const uploadPhoto = async (image) => {
     formData
   );
 
-  return response?.data?.secure_url; // ✅ This is the image URL
+  return response?.data?.secure_url
 };
 
 
 // save user in DB
 export const saveUser = async (userData) => {
-    const { data } = await axios.post(`${import.meta.env.VITE_BASE_URL}/register`, userData)
-    console.log(data);
+     await axios.post(`${import.meta.env.VITE_BASE_URL}/register`, userData)
+
 }

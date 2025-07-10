@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 const Signup = () => {
 
-    const {user, createUser , updateUser} = UseAuth()
+    const {loading, createUser , updateUser} = UseAuth()
     const navigate = useNavigate()
     // console.log(createUser);
 
@@ -154,8 +154,10 @@ const Signup = () => {
                     </div>
 
                     {/* Submit */}
-                    <button type="submit" className="btn btn-primary w-full">
-                        Register
+                    <button 
+                    type="submit" 
+                    className="btn btn-primary w-full">
+                        {loading ? <span className="loading loading-spinner text-neutral"></span> : 'Register'}
                     </button>
                 </form>
 
