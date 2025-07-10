@@ -1,0 +1,9 @@
+a {
+    font-size: 15px;
+    margin-right: 14px;
+}
+
+a.active {
+    text-decoration: underline;
+    color: blue;
+}
