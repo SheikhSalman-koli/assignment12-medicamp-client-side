@@ -8,7 +8,7 @@ import { saveUser } from '../../Components/SharedComponents/Utils';
 
 const Signin = () => {
 
-    const { signInUser, user } = UseAuth()
+    const { signInUser, loading,} = UseAuth()
     const navigate = useNavigate()
     const {
         register,
@@ -98,7 +98,7 @@ const Signin = () => {
 
                     {/* Submit */}
                     <button type="submit" className="btn btn-primary w-full">
-                        Login
+                        {loading?(<span className="loading loading-spinner loading-lg"></span>) : 'login'}
                     </button>
                 </form>
 

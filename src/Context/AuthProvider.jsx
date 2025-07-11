@@ -11,6 +11,7 @@ import {
     updateProfile,
         
 } from 'firebase/auth';
+import axios from 'axios';
 
 const AuthProvider = ({children}) => {
 
@@ -40,14 +41,24 @@ const AuthProvider = ({children}) => {
     }
 
     const logout =()=>{
+        localStorage.removeItem('token')
         return signOut(auth)
     }
 
 
     useEffect(()=>{
         const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
-            
                 setUser(currentUser)
+                if(currentUser?.email){
+                    axios.post(`${import.meta.env.VITE_BASE_URL}/jwt`, {
+                        email: currentUser?.email
+                    })
+                    .then(res=> {
+                        localStorage.setItem('token',res?.data.token);
+                    })
+                }else{
+                    localStorage.removeItem('token')
+                }
                 setLoading(false)
             
         })

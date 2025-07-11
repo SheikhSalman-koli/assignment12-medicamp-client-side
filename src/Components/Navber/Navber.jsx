@@ -62,8 +62,8 @@ const Navber = () => {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 -ml-25 mt-3 w-35 p-2 shadow space-y-3"
                             >
-                                <p className='text-[20px]'>{user?.displayName}</p>
-                                <NavLink to='/dashboard'>Dashboard</NavLink>
+                                <p className='text-base'>{user?.displayName}</p>
+                                <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>
                                 <button
                                     onClick={handleLogout}
                                     type='submit'

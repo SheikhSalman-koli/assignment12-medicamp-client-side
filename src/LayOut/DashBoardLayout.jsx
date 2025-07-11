@@ -8,7 +8,7 @@ import ParticipantNav from '../Pages/DashBoard/Participant/ParticipantNav';
 
 const DashBoardLayout = () => {
     const{role, isRoleLoading}= useUserRole()
-    console.log(role);
+    // console.log(role);
 
     if(isRoleLoading) return <LoaderSpinner></LoaderSpinner>
 
