@@ -5,6 +5,14 @@ import Signin from "../Pages/Authentication/Signin";
 import Signup from "../Pages/Authentication/Signup";
 import DashBoardLayout from "../LayOut/DashBoardLayout";
 import DashHome from "../Pages/DashBoard/DashHome";
+import OrganizerProfile from "../Pages/DashBoard/Organizer/OrganizerProfile";
+import AddCamp from "../Pages/DashBoard/Organizer/AddCamp";
+import ManageCamps from "../Pages/DashBoard/Organizer/ManageCamps";
+import ManageRegCamps from "../Pages/DashBoard/Organizer/ManageRegCamps";
+import Analytics from "../Pages/DashBoard/Participant/Analytics";
+import UserProfile from "../Pages/DashBoard/Participant/UserProfile";
+import RegisteredCamps from "../Pages/DashBoard/Participant/RegisteredCamps";
+import PaymentHistory from "../Pages/DashBoard/Participant/PaymentHistory";
 
 
 export const routes = createBrowserRouter([
@@ -33,6 +41,39 @@ export const routes = createBrowserRouter([
             {
                 index: true,
                 Component: DashHome
+            },
+            {
+                path: 'organizer-profile',
+                element: <OrganizerProfile></OrganizerProfile>
+            },
+            {
+                path: 'add-camp',
+                element: <AddCamp></AddCamp>
+            },
+            {
+                path: 'manage-camps',
+                element: <ManageCamps></ManageCamps>
+            },
+            {
+                path: 'manage-registered',
+                element: <ManageRegCamps></ManageRegCamps>
+            },
+
+            {
+                path: 'analytics',
+                element: <Analytics></Analytics>
+            },
+            {
+                path: 'participant-profile',
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: 'registered-camps',
+                element: <RegisteredCamps></RegisteredCamps>
+            },
+            {
+                path: 'payment-history',
+                element: <PaymentHistory></PaymentHistory>
             }
         ]
     }

@@ -2,10 +2,13 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
+import SocialLogin from '../../Components/SharedComponents/SocialLogin';
+import { saveUser } from '../../Components/SharedComponents/Utils';
+
 
 const Signin = () => {
 
-    const {signInUser} = UseAuth()
+    const { signInUser, user } = UseAuth()
     const navigate = useNavigate()
     const {
         register,
@@ -13,15 +16,24 @@ const Signin = () => {
         formState: { errors },
     } = useForm();
 
-    const onSubmit = async(data) => {
-        console.log('Login data:', data);
+    const onSubmit = async (data) => {
         const email = data?.email
         const password = data?.password
 
-        try{
-           const result =await signInUser(email, password)
-           console.log(result?.user);
-           navigate('/')
+        try {
+            const result = await signInUser(email, password)
+            // console.log(result?.user);
+            navigate('/')
+
+            // save user in DB
+            const userInfo = {
+                name: result?.user?.displayName,
+                email: result?.user?.email,
+                photo: result?.user?.photoURL,
+                role: 'user'
+            }
+            await saveUser(userInfo)
+
         } catch (error) {
             console.log(error);
         }
@@ -46,7 +58,7 @@ const Signin = () => {
                                     value: /^\S+@\S+$/i,
                                     message: 'Invalid email address',
                                 },
-                              
+
                             })}
                             placeholder="Enter your email"
                             className={`input input-bordered w-full ${errors.email ? 'input-error' : ''
@@ -70,7 +82,7 @@ const Signin = () => {
                                     value: 6,
                                     message: 'Minimum 6 characters',
                                 },
-                                  pattern: {
+                                pattern: {
                                     value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
                                     message: 'Must include at least one uppercase and one lowercase letter',
                                 },
@@ -97,6 +109,7 @@ const Signin = () => {
                         Register
                     </Link>
                 </p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

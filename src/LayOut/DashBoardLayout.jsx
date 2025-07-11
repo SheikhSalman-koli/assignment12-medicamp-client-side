@@ -2,10 +2,16 @@ import React from 'react';
 import Logo from '../Components/SharedComponents/Logo';
 import { Link, Outlet } from 'react-router';
 import useUserRole from '../Hooks/useUserRole';
+import LoaderSpinner from '../Components/SharedComponents/LoaderSpinner';
+import OrganizerNav from '../Pages/DashBoard/Organizer/OrganizerNav';
+import ParticipantNav from '../Pages/DashBoard/Participant/ParticipantNav';
 
 const DashBoardLayout = () => {
-    const{role}= useUserRole()
+    const{role, isRoleLoading}= useUserRole()
     console.log(role);
+
+    if(isRoleLoading) return <LoaderSpinner></LoaderSpinner>
+
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
@@ -39,9 +45,13 @@ const DashBoardLayout = () => {
                 <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
                     {/* Sidebar content here */}
-                    <Link to='/'><Logo></Logo></Link>
-                    <li><a>Sidebar Item 1</a></li>
-                    <li><a>Sidebar Item 2</a></li>
+                    <Link to='/' className='my-8'><Logo></Logo></Link>
+                    {
+                       !isRoleLoading && role === 'admin' && <OrganizerNav></OrganizerNav>
+                    }
+                    {
+                       !isRoleLoading && role === 'user' && <ParticipantNav></ParticipantNav>
+                    }
                 </ul>
             </div>
         </div>
