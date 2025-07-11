@@ -1,17 +1,18 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
 import { saveUser, uploadPhoto } from '../../Components/SharedComponents/Utils';
 import SocialLogin from '../../Components/SharedComponents/SocialLogin';
 import Swal from 'sweetalert2';
 
 
-
 const Signup = () => {
 
     const {loading, createUser , updateUser} = UseAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
     // console.log(createUser);
 
     const {
@@ -36,7 +37,7 @@ const Signup = () => {
             const result = await createUser(email, password)
             if(result){
                 Swal.fire('user logged in successfully!')
-                 navigate('/')
+                 navigate(from)
             }
             const emailHolder = result?.user
 

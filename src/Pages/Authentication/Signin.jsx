@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
 import SocialLogin from '../../Components/SharedComponents/SocialLogin';
 import { saveUser } from '../../Components/SharedComponents/Utils';
@@ -10,6 +10,9 @@ const Signin = () => {
 
     const { signInUser, loading,} = UseAuth()
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
+    // console.log(from);
     const {
         register,
         handleSubmit,
@@ -23,7 +26,7 @@ const Signin = () => {
         try {
             const result = await signInUser(email, password)
             // console.log(result?.user);
-            navigate('/')
+            navigate(from)
 
             // save user in DB
             const userInfo = {

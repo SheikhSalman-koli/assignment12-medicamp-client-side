@@ -3,6 +3,8 @@ import useUserRole from '../../Hooks/useUserRole';
 import LoaderSpinner from '../../Components/SharedComponents/LoaderSpinner';
 import OrganizerHome from './Organizer/OrganizerHome';
 import ParticipantHome from './Participant/ParticipantHome';
+import OrganizerProfile from './Organizer/OrganizerProfile';
+import Analytics from './Participant/Analytics';
 
 const DashHome = () => {
 
@@ -12,13 +14,12 @@ const DashHome = () => {
 
     return (
         <div className='lg:mt-8 pl-3'>
-            dash Home
-            {/* {
-                !isRoleLoading && role === 'admin' && <OrganizerHome></OrganizerHome>
+            {
+                !isRoleLoading && role === 'admin' && <OrganizerProfile></OrganizerProfile>
             }
             {
-                !isRoleLoading && role === 'user' && <ParticipantHome></ParticipantHome>
-            } */}
+                !isRoleLoading && role === 'user' && <Analytics></Analytics>
+            }
         </div>
     );
 };

@@ -13,6 +13,7 @@ import Analytics from "../Pages/DashBoard/Participant/Analytics";
 import UserProfile from "../Pages/DashBoard/Participant/UserProfile";
 import RegisteredCamps from "../Pages/DashBoard/Participant/RegisteredCamps";
 import PaymentHistory from "../Pages/DashBoard/Participant/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const routes = createBrowserRouter([
@@ -26,6 +27,7 @@ export const routes = createBrowserRouter([
             }
         ]
     },
+    
     {
         path: 'signin',
         Component: Signin
@@ -34,13 +36,17 @@ export const routes = createBrowserRouter([
         path: 'signup',
         Component: Signup
     },
+
     {
         path: 'dashboard',
         Component: DashBoardLayout,
         children: [
             {
                 index: true,
-                Component: DashHome
+                // Component: DashHome
+                element: <PrivateRoute>
+                    <DashHome></DashHome>
+                </PrivateRoute>
             },
             {
                 path: 'organizer-profile',
