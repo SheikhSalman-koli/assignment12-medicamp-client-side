@@ -14,6 +14,8 @@ import UserProfile from "../Pages/DashBoard/Participant/UserProfile";
 import RegisteredCamps from "../Pages/DashBoard/Participant/RegisteredCamps";
 import PaymentHistory from "../Pages/DashBoard/Participant/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
+import OrganizerRoute from "./OrganizerRoute";
+import AvailableCamps from "../Pages/Available/AvailableCamps";
 
 
 export const routes = createBrowserRouter([
@@ -24,6 +26,10 @@ export const routes = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: 'available',
+                Component: AvailableCamps
             }
         ]
     },
@@ -50,19 +56,27 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'organizer-profile',
-                element: <OrganizerProfile></OrganizerProfile>
+                element: <OrganizerRoute>
+                    <OrganizerProfile></OrganizerProfile>
+                </OrganizerRoute>
             },
             {
                 path: 'add-camp',
-                element: <AddCamp></AddCamp>
+                element: <OrganizerRoute>
+                    <AddCamp></AddCamp>
+                </OrganizerRoute>
             },
             {
                 path: 'manage-camps',
-                element: <ManageCamps></ManageCamps>
+                element: <OrganizerRoute>
+                    <ManageCamps></ManageCamps>
+                </OrganizerRoute>
             },
             {
                 path: 'manage-registered',
-                element: <ManageRegCamps></ManageRegCamps>
+                element: <OrganizerRoute>
+                    <ManageRegCamps></ManageRegCamps>
+                </OrganizerRoute>
             },
 
             {

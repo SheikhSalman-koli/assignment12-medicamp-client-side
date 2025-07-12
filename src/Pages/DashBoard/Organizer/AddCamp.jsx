@@ -147,6 +147,7 @@ const AddCamp = () => {
         <div className="md:col-span-2">
           <button
             type="submit"
+            disabled={proccess}
             className="w-full bg-blue-600 text-white py-2 font-semibold rounded hover:bg-blue-700 transition"
           >
             {proccess ? 'proccessing to add...' : 'Add Camp'}
