@@ -16,6 +16,7 @@ import PaymentHistory from "../Pages/DashBoard/Participant/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import OrganizerRoute from "./OrganizerRoute";
 import AvailableCamps from "../Pages/Available/AvailableCamps";
+import CampDetails from "../Pages/Home/CampDetails";
 
 
 export const routes = createBrowserRouter([
@@ -30,6 +31,10 @@ export const routes = createBrowserRouter([
             {
                 path: 'available',
                 Component: AvailableCamps
+            },
+            {
+                path: 'camp-details/:campId',
+                Component: CampDetails
             }
         ]
     },

@@ -19,13 +19,13 @@ const HighestParticipant = () => {
         },
     });
 
-    console.log(camps);
+    // console.log(camps);
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
     if (isError) return <p className="text-center py-10 text-red-500">Something went wrong.</p>;
 
     return (
-        <section className="py-12 px-4 md:px-10">
+        <section className="py-12">
             <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">Popular Medical Camps</h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
