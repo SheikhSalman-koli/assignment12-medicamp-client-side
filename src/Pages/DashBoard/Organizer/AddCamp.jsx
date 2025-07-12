@@ -3,8 +3,10 @@ import { uploadPhoto } from '../../../Components/SharedComponents/Utils';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
+import UseAuth from '../../../Hooks/useAuth';
 
 const AddCamp = () => {
+  const {user} = UseAuth()
   const axiosSecure = useAxiosSecure()
   const [proccess, setProccess] = useState(false)
   const {
@@ -29,7 +31,8 @@ const AddCamp = () => {
     const photo= await uploadPhoto(image)
     const campData = {
       ...newCamp,
-      photo: photo
+      photo: photo,
+      created_by: user?.email
     }
     // console.log('Camp Submitted:', campData);
 
@@ -46,7 +49,7 @@ const AddCamp = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg border-1 border-blue-600 my-6">
       <h2 className="text-2xl font-bold mb-6 text-center">Add A Camp</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Camp Name */}
