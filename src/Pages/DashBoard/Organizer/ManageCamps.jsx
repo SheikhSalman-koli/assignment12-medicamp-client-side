@@ -62,26 +62,26 @@ const ManageCamps = () => {
                 <table className="min-w-full bg-white border rounded shadow text-sm md:text-base border-collapse">
                     <thead className="bg-blue-600 text-white">
                         <tr>
-                            <th className="p-3 border border-black text-left">Camp Name</th>
-                            <th className="p-3 border border-black text-left">Date & Time</th>
-                            <th className="p-3 border border-black text-left">Location</th>
-                            <th className="p-3 border border-black text-left">Healthcare Professional</th>
-                            <th className="p-3 border border-black text-center">Actions</th>
+                            <th className="p-2 border border-black text-left">Camp Name</th>
+                            <th className="p-2 border border-black text-left">Date & Time</th>
+                            <th className="p-2 border border-black text-left">Location</th>
+                            <th className="p-2 border border-black text-left">Healthcare Professional</th>
+                            <th className="p-2 border border-black text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {camps.map((camp) => (
                             <tr key={camp._id} className="border-b hover:bg-gray-100">
-                                <td className="p-3 border border-black">{camp?.campName}</td>
-                                <td className="p-3 border border-black">
+                                <td className="p-2 border border-black">{camp?.campName}</td>
+                                <td className="p-2 border border-black">
                                     {new Date(camp?.dateTime).toLocaleString('en-GB', {
                                         dateStyle: 'medium',
                                         timeStyle: 'short',
                                     })}
                                 </td>
-                                <td className="p-3 border border-black">{camp?.location}</td>
-                                <td className="p-3 border border-black">{camp?.doctor}</td>
-                                <td className="p-3 flex gap-4 justify-center">
+                                <td className="p-2 border border-black">{camp?.location}</td>
+                                <td className="p-2 border border-black">{camp?.doctor}</td>
+                                <td className="p-2 flex gap-4 justify-center">
                                     <button
                                         className="text-blue-600 hover:text-blue-800"
                                         onClick={() => setSelectedCamp(camp)}

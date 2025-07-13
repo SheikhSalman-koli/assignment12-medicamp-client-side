@@ -46,7 +46,8 @@ const CampDetails = () => {
         const registration = {
             ...formData,
             campId: camp._id,
-            status: 'pending'
+            confirm_status: '',
+            payment_status: 'unpaid',
         };
 
         try {
@@ -89,12 +90,6 @@ const CampDetails = () => {
 
             {/* Join Camp Button */}
             <div className="text-center">
-                {/* <button
-          onClick={() => setShowModal(true)}
-          className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
-        >
-          Join Camp
-        </button> */}
                 {checking ? (
                     <p>Checking registration...</p>
                 ) : isRegistered ? (
