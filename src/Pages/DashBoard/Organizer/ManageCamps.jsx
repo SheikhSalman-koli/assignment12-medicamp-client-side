@@ -5,6 +5,7 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import UseAuth from '../../../Hooks/useAuth';
 import { useState } from 'react';
 import EditCampModal from './EditCampModal';
+import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 
 const ManageCamps = () => {
     const axiosSecure = useAxiosSecure();
@@ -19,7 +20,6 @@ const ManageCamps = () => {
         queryKey: ['organizerCamps', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/camps?email=${user?.email}`);
-            console.log(res.data);
             return res.data;
         },
         enabled: !!user?.email,
@@ -53,7 +53,10 @@ const ManageCamps = () => {
             await deleteCamp(id);
         }
     };
-    if (isLoading) return <p>loading....</p>  // <LoaderSpinner/>
+
+    if (isLoading) return <LoaderSpinner></LoaderSpinner>
+
+
     return (
         <div className="w-full p-4 md:p-8">
             <h2 className="text-2xl font-bold mb-6 text-center">Manage Your Camps</h2>
@@ -62,6 +65,7 @@ const ManageCamps = () => {
                 <table className="min-w-full bg-white border rounded shadow text-sm md:text-base border-collapse">
                     <thead className="bg-blue-600 text-white">
                         <tr>
+                            <th className="p-2 border border-black text-left">#</th>
                             <th className="p-2 border border-black text-left">Camp Name</th>
                             <th className="p-2 border border-black text-left">Date & Time</th>
                             <th className="p-2 border border-black text-left">Location</th>
@@ -70,8 +74,9 @@ const ManageCamps = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {camps.map((camp) => (
+                        {camps.map((camp, index) => (
                             <tr key={camp._id} className="border-b hover:bg-gray-100">
+                                <td className="p-2 border border-black">{index + 1}</td>
                                 <td className="p-2 border border-black">{camp?.campName}</td>
                                 <td className="p-2 border border-black">
                                     {new Date(camp?.dateTime).toLocaleString('en-GB', {

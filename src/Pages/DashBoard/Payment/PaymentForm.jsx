@@ -30,7 +30,7 @@ const PaymentForm = () => {
     const amount = parseInt(registered?.campFees)
     const amountInCents = amount * 100
 
-    // console.log(registered);
+    console.log(registered._id);
 
     const handlePayment = async (event) => {
         event.preventDefault();
@@ -86,11 +86,13 @@ const PaymentForm = () => {
                         payerEmail: user?.email,
                         payertName: user?.displayName,
                         regCampId: registered?.campId,
+                        regId: registered?._id,
                         regCampName: registered?.campName,
                         transactionId: transactionId,
                         date: new Date().toISOString(),
                         payment_status: 'paid',
                         amount: registered?.campFees,
+                        confirm_status: ''
                     }
 
                     const res = await axiosSecure.post('/payments', paymentData);

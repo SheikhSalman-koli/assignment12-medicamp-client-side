@@ -5,11 +5,15 @@ import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
+import FeedbackModal from './FeedbackModal';
 
 const RegisteredCamps = () => {
     const { user } = UseAuth();
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate()
+
+    const [isOpen, setIsopen] = useState(false)
 
     const {
         data: registrations = [],
@@ -26,13 +30,17 @@ const RegisteredCamps = () => {
 
     // make payment
     const handlePayment = (id) => {
-       navigate(`/dashboard/payment/${id}`)
+        navigate(`/dashboard/payment/${id}`)
     };
 
     // give feedback
     const handleFeedback = (camp) => {
-        console.log('Feedback for:', camp.campName);
+
     };
+    const closeModal = () => {
+        setIsopen(false)
+    }
+
     // delete registration
     const handleCancel = async (registrationId, campId) => {
         const confirm = await Swal.fire({
@@ -107,7 +115,7 @@ const RegisteredCamps = () => {
 
                                 <td className="border p-2 space-y-1.5 lg:space-x-1.5">
                                     {/* Pay Button (only if unpaid) */}
-                                    {camp?.payment_status !== 'paid' && 
+                                    {camp?.payment_status !== 'paid' &&
                                         <button
                                             className="btn btn-xs btn-primary"
                                             onClick={() => handlePayment(camp?._id)}
@@ -115,19 +123,18 @@ const RegisteredCamps = () => {
                                             Pay
                                         </button>
                                     }
-                                    
+
                                     {/* Feedback Button */}
-                                     {camp?.payment_status === 'paid' && 
+                                    {camp?.payment_status === 'paid' &&
                                         <button
                                             disabled={camp?.payment_status !== 'paid'}
                                             className="btn btn-xs btn-info"
-                                            onClick={() => handleFeedback(camp)}
+                                            onClick={() => setIsopen(true)}
                                         >
                                             Feedback
                                         </button>
-                                     }
-                                 
-
+                                    }
+                                    
                                     {/* Cancel Button */}
                                     <button
                                         disabled={camp?.payment_status === 'paid'}
@@ -137,6 +144,12 @@ const RegisteredCamps = () => {
                                         Cancel
                                     </button>
                                 </td>
+                                    {isOpen && <FeedbackModal
+                                        isOpen={isOpen}
+                                        onClose={closeModal}
+                                        regData={camp}
+                                    ></FeedbackModal>}
+
                             </tr>
                         ))}
                     </tbody>

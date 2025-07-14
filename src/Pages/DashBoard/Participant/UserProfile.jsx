@@ -37,15 +37,15 @@ const UserProfile = () => {
         },
     });
 
-    useEffect(() => {
-        if (participant) {
-            reset({
-                name: participant.name,
-                photo: participant.photo,
-                contact: participant.contact || '01902849384',
-            });
-        }
-    }, [participant, reset]);
+    // useEffect(() => {
+    //     if (participant) {
+    //         reset({
+    //             name: participant.name,
+    //             photo: participant.photo,
+    //             contact: participant.contact || '01902849384',
+    //         });
+    //     }
+    // }, [participant, reset]);
 
     const {
         mutateAsync: updateProfile,
@@ -54,7 +54,6 @@ const UserProfile = () => {
         mutationKey: ['updateparticipantProfile'],
         mutationFn: async (updatedData) => {
             const res = await axiosSecure.patch(`/users/${user?.email}`, updatedData);
-            console.log(res.data);
             return res.data;
         },
         onSuccess: () => {
