@@ -59,7 +59,7 @@ const OrganizerProfile = () => {
     if (isLoading) return <p className="text-center mt-8">Loading profile...</p>;
 
     return (
-        <div className="w-full px-4 md:px-8 py-6 mt-8">
+        <div className="w-full px-4 md:px-8 py-6 mt-8 lg:mt-8">
             <div className="w-full max-w-4xl mx-auto bg-white border-1 border-blue-600 rounded-lg p-6 sm:p-8">
                 <h2 className="text-2xl font-bold mb-6 text-center">Organizer Profile</h2>
 

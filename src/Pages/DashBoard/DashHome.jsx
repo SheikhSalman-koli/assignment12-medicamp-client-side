@@ -5,15 +5,16 @@ import OrganizerHome from './Organizer/OrganizerHome';
 import ParticipantHome from './Participant/ParticipantHome';
 import OrganizerProfile from './Organizer/OrganizerProfile';
 import Analytics from './Participant/Analytics';
+import { useNavigate } from 'react-router';
 
 const DashHome = () => {
 
     const{role, isRoleLoading} = useUserRole()
 
     if(isRoleLoading) return <LoaderSpinner></LoaderSpinner>
-
+     
     return (
-        <div className='lg:mt-8 pl-3'>
+        <div className=''>
             {
                 !isRoleLoading && role === 'admin' && <OrganizerProfile></OrganizerProfile>
             }

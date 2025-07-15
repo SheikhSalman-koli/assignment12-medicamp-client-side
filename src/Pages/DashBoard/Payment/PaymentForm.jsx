@@ -30,8 +30,6 @@ const PaymentForm = () => {
     const amount = parseInt(registered?.campFees)
     const amountInCents = amount * 100
 
-    console.log(registered._id);
-
     const handlePayment = async (event) => {
         event.preventDefault();
         setProcessing(true)

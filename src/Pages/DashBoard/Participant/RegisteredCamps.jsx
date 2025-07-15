@@ -13,7 +13,7 @@ const RegisteredCamps = () => {
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate()
 
-    const [isOpen, setIsopen] = useState(false)
+    const [isOpen, setIsopen] = useState(null)
 
     const {
         data: registrations = [],
@@ -37,9 +37,6 @@ const RegisteredCamps = () => {
     const handleFeedback = (camp) => {
 
     };
-    const closeModal = () => {
-        setIsopen(false)
-    }
 
     // delete registration
     const handleCancel = async (registrationId, campId) => {
@@ -129,12 +126,19 @@ const RegisteredCamps = () => {
                                         <button
                                             disabled={camp?.payment_status !== 'paid'}
                                             className="btn btn-xs btn-info"
-                                            onClick={() => setIsopen(true)}
+                                            onClick={() => setIsopen(camp)
+                                            }
                                         >
                                             Feedback
                                         </button>
                                     }
-                                    
+
+                                    {isOpen && <FeedbackModal
+                                        isOpen={isOpen}
+                                        onClose={() => setIsopen(null)}
+                                        regData={isOpen}
+                                    ></FeedbackModal>}
+
                                     {/* Cancel Button */}
                                     <button
                                         disabled={camp?.payment_status === 'paid'}
@@ -144,17 +148,14 @@ const RegisteredCamps = () => {
                                         Cancel
                                     </button>
                                 </td>
-                                    {isOpen && <FeedbackModal
-                                        isOpen={isOpen}
-                                        onClose={closeModal}
-                                        regData={camp}
-                                    ></FeedbackModal>}
+
 
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+
         </div>
     );
 };
