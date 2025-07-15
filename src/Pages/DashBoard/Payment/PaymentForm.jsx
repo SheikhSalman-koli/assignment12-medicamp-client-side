@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import UseAuth from '../../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import Swal from 'sweetalert2';
 
 const PaymentForm = () => {
     const { regId } = useParams()
@@ -13,6 +14,7 @@ const PaymentForm = () => {
     const [error, setError] = useState(null);
     const [processing, setProcessing] = useState(false);
     const [succeeded, setSucceeded] = useState(false);
+    const [complete, setComplete] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
     const navigate = useNavigate()
@@ -52,7 +54,7 @@ const PaymentForm = () => {
             setError(error.message);
         } else {
             setError('')
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
             // create payment intent
             const res = await axiosSecure.post(`/payment/intent`, {
                 amountInCents,
@@ -78,7 +80,13 @@ const PaymentForm = () => {
 
                 if (result?.paymentIntent?.status === 'succeeded') {
                     const transactionId = result?.paymentIntent.id
-                    toast.success(`Payment successful! Transaction ID: ${transactionId}`)
+                    // toast.success(`Payment successful! Transaction ID: ${transactionId}`)
+                    Swal.fire({
+                        title: 'Payment Successful!',
+                        text: `Transaction ID: ${transactionId}`,
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                    });
 
                     const paymentData = {
                         payerEmail: user?.email,
@@ -94,8 +102,9 @@ const PaymentForm = () => {
                     }
 
                     const res = await axiosSecure.post('/payments', paymentData);
-                    if(res?.data.insertedId){
-                        navigate('/dashboard/registered-camps')
+                    if (res?.data.insertedId) {
+                        // navigate('/dashboard/registered-camps')
+
                     }
                     refetch()
                 }
@@ -115,7 +124,10 @@ const PaymentForm = () => {
 
             <form onSubmit={handlePayment} className="space-y-6">
                 <div className="p-4 rounded-md border border-gray-300 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500">
-                    <CardElement className="p-2 text-gray-700 text-base" />
+                    <CardElement 
+                    className="p-2 text-gray-700 text-base" 
+                    onChange={(e)=> setComplete(e.complete)}
+                    />
                 </div>
 
                 {error && <p className="text-rose-600 text-sm text-center">{error}</p>}
@@ -123,14 +135,19 @@ const PaymentForm = () => {
 
                 <button
                     type="submit"
-                    disabled={!stripe || processing || succeeded}
-                    className={`w-full py-3 rounded-md text-white font-semibold transition duration-300 ${processing || succeeded
+                    disabled={!stripe || 
+                        processing || 
+                        succeeded || 
+                        // registered?.payment_status === 'paid'
+                        !complete
+                    }
+                    className={`w-full py-3 rounded-md text-white font-semibold transition duration-300 ${processing || succeeded || !complete
                         ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-indigo-600 hover:bg-indigo-700 shadow-md'
                         }`
                     }
                 >
-                    {processing ? 'Processing...' : `Pay $${registered?.campFees}`}
+                    {registered?.payment_status !== 'paid' ? `pay $${registered?.campFees}` : 'paid'}
                 </button>
             </form>
         </div>

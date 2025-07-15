@@ -20,20 +20,20 @@ const Analytics = () => {
         }
     })
 
-    console.log(ragistrations);
+    // console.log(ragistrations);
     if(isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
         <div className='mt-8'>
             <ComposedChart width={730} height={250} data={ragistrations}>
-                <XAxis dataKey="campName" />
+                <XAxis dataKey="location" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
                 <CartesianGrid stroke="#f5f5f5" />
                 <Area type="step" dataKey="campFees" fill="#8884d8" stroke="#8884d8" />
                 <Bar dataKey="doctor" barSize={20} fill="#413ea0" />
-                <Line type="step" dataKey="payment_status" stroke="#ff7300" />
+                <Line type="step" dataKey="campName" stroke="#ff7300" />
             </ComposedChart>
         </div>
     );

@@ -34,9 +34,8 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
             Swal.fire('Thank you!', 'Your feedback has been submitted.', 'success');
             reset();
             onClose();
-          } catch (err) {
-            console.error(err);
-            Swal.fire('Error', 'Failed to submit feedback.', 'error');
+          } catch (error) {
+            Swal.fire('Error', `Failed to submit feedback for ${error.message}`, 'error');
           }
     };
 
@@ -48,7 +47,7 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
 
                 <h2 className="text-2xl font-semibold text-center">Ragistration Feedback</h2>
                 <div className="text-center border-b-1 pb-2">
-                    <h3 className="text-xl font-medium">Give Your Feedback!</h3>
+                    <h3 className="text-xl">Give Feedback For <span className="font-medium text-primary">{regData?.campName}</span></h3>
                     <p>Don't forget to share your experience with us</p>
                 </div>
 

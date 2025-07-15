@@ -2,6 +2,7 @@ import React from 'react';
 import UseAuth from '../../Hooks/useAuth';
 import { saveUser } from './Utils';
 import { useNavigate } from 'react-router';
+import toast from 'react-hot-toast';
 
 const SocialLogin = () => {
 
@@ -26,7 +27,7 @@ const SocialLogin = () => {
 
 
             }).catch(error => {
-                console.log(error);
+                toast.error(error.message);
             })
     }
 

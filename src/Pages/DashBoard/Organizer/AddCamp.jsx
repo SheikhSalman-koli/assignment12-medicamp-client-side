@@ -4,6 +4,7 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
 import { useState } from 'react';
 import UseAuth from '../../../Hooks/useAuth';
+import toast from 'react-hot-toast';
 
 const AddCamp = () => {
   const {user} = UseAuth()
@@ -43,7 +44,7 @@ const AddCamp = () => {
         Swal.fire('A camp added successfully!')
       }
     } catch (error) {
-      console.error('Error adding camp:', error.message);
+      toast.error(error.message);
     }
     // reset();
   };

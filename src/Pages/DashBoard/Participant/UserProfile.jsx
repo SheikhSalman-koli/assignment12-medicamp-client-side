@@ -18,7 +18,6 @@ const UserProfile = () => {
         queryKey: ['participantProfile', user?.Email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/${user?.email}`);
-            console.log(res.data);
             return res.data;
         },
         enabled: !!user?.email,
@@ -69,7 +68,7 @@ const UserProfile = () => {
             ...data,
             photo
         }
-        console.log(updatedData);
+        // console.log(updatedData);
         await updateProfile(updatedData);
     };
 

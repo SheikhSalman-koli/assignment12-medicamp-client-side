@@ -9,8 +9,6 @@ import Swal from 'sweetalert2';
 
 const Navber = () => {
     const { user, logout } = UseAuth()
-    console.log(user);
-
 
     const handleLogout = async () => {
         logout()

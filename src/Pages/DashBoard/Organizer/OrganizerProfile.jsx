@@ -36,7 +36,6 @@ const OrganizerProfile = () => {
         mutationKey: ['updateOrganizerProfile'],
         mutationFn: async (updatedData) => {
             const res = await axiosSecure.patch(`/users/${user?.email}`, updatedData);
-            console.log(res.data);
             return res.data;
         },
         onSuccess: () => {
@@ -52,7 +51,7 @@ const OrganizerProfile = () => {
             ...data,
             photo
         }
-        console.log(updatedData);
+        // console.log(updatedData);
         await updateProfile(updatedData);
     };
 

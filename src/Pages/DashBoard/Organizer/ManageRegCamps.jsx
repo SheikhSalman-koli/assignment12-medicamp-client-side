@@ -98,7 +98,7 @@ const ManageRegCamps = () => {
                                 <td className="border p-2 space-y-1.5">
                                     <button
                                         disabled={reg?.payment_status === 'unpaid' || reg?.confirm_status}
-                                        className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 disabled:opacity-50"
+                                        className={`bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 disabled:opacity-50 ${reg?.confirm_status && 'cursor-not-allowed'}`}
                                         onClick={() => handleConfirm(reg._id)}
                                     >
                                         confirm
@@ -106,7 +106,7 @@ const ManageRegCamps = () => {
 
                                     <button
                                         disabled={reg?.payment_status === 'paid' && reg?.confirm_status}
-                                        className={`bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 disabled:opacity-50`}
+                                        className={`bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 disabled:opacity-50 ${reg?.confirm_status && 'cursor-not-allowed'}`}
                                         onClick={() => handleCancel(reg._id, reg.campId)}
                                     >
                                         Cancel

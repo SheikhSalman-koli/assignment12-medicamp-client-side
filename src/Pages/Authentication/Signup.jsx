@@ -5,6 +5,7 @@ import UseAuth from '../../Hooks/useAuth';
 import { saveUser, uploadPhoto } from '../../Components/SharedComponents/Utils';
 import SocialLogin from '../../Components/SharedComponents/SocialLogin';
 import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 
 const Signup = () => {
@@ -60,7 +61,7 @@ const Signup = () => {
            
 
         } catch (error) {
-            console.log(error);
+            toast.error(error.message);
         }
         // reset(); 
     };

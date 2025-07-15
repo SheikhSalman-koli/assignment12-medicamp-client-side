@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import UseAuth from '../../Hooks/useAuth';
 import SocialLogin from '../../Components/SharedComponents/SocialLogin';
 import { saveUser } from '../../Components/SharedComponents/Utils';
+import toast from 'react-hot-toast';
 
 
 const Signin = () => {
@@ -38,7 +39,7 @@ const Signin = () => {
             await saveUser(userInfo)
 
         } catch (error) {
-            console.log(error);
+            toast.error(error.message);
         }
     };
 
