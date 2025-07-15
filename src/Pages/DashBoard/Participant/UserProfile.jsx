@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { uploadPhoto } from '../../../Components/SharedComponents/Utils';
 import UseAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 
 const UserProfile = () => {
 
@@ -72,7 +73,7 @@ const UserProfile = () => {
         await updateProfile(updatedData);
     };
 
-    if (isLoading) return <p className="text-center mt-8">Loading profile...</p>;
+    if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
 
     return (

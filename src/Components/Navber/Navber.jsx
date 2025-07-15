@@ -54,7 +54,7 @@ const Navber = () => {
                     {user ? <>
                         <div className="dropdown">
                             <div tabIndex={0}>
-                                <img src={user?.photoURL} className='w-8 h-8 rounded-full' alt="" />
+                                <img src={user?.photoURL} className='w-8 h-8 rounded-full border-1' alt="" />
                             </div>
                             <div
                                 tabIndex={0}

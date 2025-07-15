@@ -18,6 +18,7 @@ import OrganizerRoute from "./OrganizerRoute";
 import AvailableCamps from "../Pages/Available/AvailableCamps";
 import CampDetails from "../Pages/Home/CampDetails";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import AllFeedbacks from "../Pages/Home/AllFeedbacks";
 
 
 export const routes = createBrowserRouter([
@@ -39,6 +40,10 @@ export const routes = createBrowserRouter([
                 element: <PrivateRoute>
                     <CampDetails></CampDetails>
                 </PrivateRoute>
+            },
+            {
+                path :'all-feedback',
+                Component: AllFeedbacks
             }
         ]
     },

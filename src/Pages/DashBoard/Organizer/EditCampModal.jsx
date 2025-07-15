@@ -70,7 +70,7 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
 
                         {/* Image */}
                         <div>
-                            <label className="font-medium">Image URL</label>
+                            <label className="font-medium">Upload image ( low file size )</label>
                             <input 
                             type="file"
                             accept="image/*"
@@ -130,7 +130,7 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
                         <div className="md:col-span-2 flex justify-end gap-4 mt-2">
                             <button
                                 type="submit"
-                                disabled={isPending}
+                                // disabled={isPending}
                                 className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                             >
                                 {isPending ? 'Updating...' : 'Update'}                             

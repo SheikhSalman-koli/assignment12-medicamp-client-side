@@ -4,6 +4,7 @@ import { useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import UseAuth from '../../../Hooks/useAuth';
 import { uploadPhoto } from '../../../Components/SharedComponents/Utils';
+import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 
 
 const OrganizerProfile = () => {
@@ -55,7 +56,7 @@ const OrganizerProfile = () => {
         await updateProfile(updatedData);
     };
 
-    if (isLoading) return <p className="text-center mt-8">Loading profile...</p>;
+    if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
         <div className="w-full px-4 md:px-8 py-6 mt-8 lg:mt-8">

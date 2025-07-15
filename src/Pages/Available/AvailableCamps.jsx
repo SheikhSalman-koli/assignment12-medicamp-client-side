@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import AvailableCard from './AvailableCard';
+import LoaderSpinner from '../../Components/SharedComponents/LoaderSpinner';
 
 const AvailableCamps = () => {
   const axiosSecure = useAxiosSecure();
@@ -17,7 +18,7 @@ const AvailableCamps = () => {
     },
   });
 
-  if (isLoading) return <p className="text-center py-10">Loading available camps...</p>;
+  if (isLoading) return <LoaderSpinner></LoaderSpinner>
   if (isError) return <p className="text-center py-10 text-red-500">Failed to load camps.</p>;
 
   return (

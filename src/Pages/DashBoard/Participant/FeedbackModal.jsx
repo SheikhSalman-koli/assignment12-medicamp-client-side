@@ -4,9 +4,11 @@ import Rating from "react-rating";
 import { useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import UseAuth from "../../../Hooks/useAuth";
 
 
 const FeedbackModal = ({ isOpen, onClose, regData }) => {
+    const {user} = UseAuth()
     const axiosSecure = useAxiosSecure()
     const [rating, setRating] = useState(0);
 
@@ -22,11 +24,13 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
         const feedbackData = {
             registrationId: regData._id,
             campId: regData.campId,
+            feedbackFor: regData?.campName,
             participantEmail: regData.participantEmail,
             participantName: regData.participantName,
             rating: parseFloat(rating),
             comment: data.comment,
-            date: new Date().toISOString()
+            date: new Date().toISOString(),
+            photo: user?.photoURL
         };
        
           try {

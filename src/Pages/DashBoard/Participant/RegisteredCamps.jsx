@@ -132,13 +132,7 @@ const RegisteredCamps = () => {
                                             Feedback
                                         </button>
                                     }
-
-                                    {isOpen && <FeedbackModal
-                                        isOpen={isOpen}
-                                        onClose={() => setIsopen(null)}
-                                        regData={isOpen}
-                                    ></FeedbackModal>}
-
+                                    
                                     {/* Cancel Button */}
                                     <button
                                         disabled={camp?.payment_status === 'paid'}
@@ -148,14 +142,18 @@ const RegisteredCamps = () => {
                                         Cancel
                                     </button>
                                 </td>
-
-
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-
+            {
+                isOpen && <FeedbackModal
+                    isOpen={isOpen}
+                    onClose={() => setIsopen(null)}
+                    regData={isOpen}
+                ></FeedbackModal>
+            }
         </div>
     );
 };

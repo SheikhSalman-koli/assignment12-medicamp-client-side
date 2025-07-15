@@ -6,6 +6,7 @@ import { useState } from 'react';
 import RegisterModal from './RegisterModal';
 import toast from 'react-hot-toast';
 import UseAuth from '../../Hooks/useAuth';
+import LoaderSpinner from '../../Components/SharedComponents/LoaderSpinner';
 
 const CampDetails = () => {
     const { campId } = useParams();
@@ -63,7 +64,7 @@ const CampDetails = () => {
         // console.log(registration);
     };
 
-    if (isLoading) return <p className="text-center py-10">Loading camp details...</p>;
+    if (isLoading) return <LoaderSpinner></LoaderSpinner>
     if (isError) return <p className="text-center text-red-500">Failed to load camp details.</p>;
 
     return (
