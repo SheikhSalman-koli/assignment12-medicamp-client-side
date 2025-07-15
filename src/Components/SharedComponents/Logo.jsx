@@ -7,9 +7,9 @@ const Logo = () => {
       <img
         src={logo}
         alt="CareBridge Logo"
-        className="w-10 h-10 rounded-full shadow-lg"
+        className="w-10 h-10 rounded-full shadow-lg border-2"
       />
-      <span className="text-xl font-bold text-primary">CareBridge</span>
+      <span className="text-xl font-bold text-primary">MediCamp</span>
     </div>
   )
 }
