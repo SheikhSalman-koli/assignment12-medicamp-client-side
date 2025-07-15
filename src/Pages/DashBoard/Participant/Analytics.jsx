@@ -21,10 +21,10 @@ const Analytics = () => {
     })
 
     // console.log(ragistrations);
-    if(isLoading) return <LoaderSpinner></LoaderSpinner>
+    if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
-        <div className='mt-8'>
+        <div className='flex justify-center items-center h-screen overflow-x-auto'>
             <ComposedChart width={730} height={250} data={ragistrations}>
                 <XAxis dataKey="location" />
                 <YAxis />

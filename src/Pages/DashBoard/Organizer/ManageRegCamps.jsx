@@ -62,7 +62,7 @@ const ManageRegCamps = () => {
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
-        <div className="max-w-6xl mx-auto p-4">
+        <div className="p-4">
             <h2 className="text-2xl font-bold mb-4 text-center">Manage Registered Camps</h2>
 
             <div className="overflow-x-auto">

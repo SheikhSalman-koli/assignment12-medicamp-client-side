@@ -1,12 +1,25 @@
-# React + Vite
+# 🏥 MediCamp — Medical Camp Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 👤 Organizer Login:
+- **Email:** shahed@gmail.com  
+- **Password:** 11ssSS
 
-Currently, two official plugins are available:
+### 🌐 Live Site URL:
+[Visit MediCamp Live 🚀](https://carebridge-f2765.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. 🔐 **Secure Authentication** — Role-based login system for Participants and Organizers.
+2. 🗓️ **Camp Management** — Organizers can add, update, and delete medical camps.
+3. 💳 **Stripe Payment Integration** — Seamless camp registration and payment processing.
+4. 📊 **Analytics Dashboard** — Participants and organizers get a personalized dashboard.
+5. 📈 **Participant Count Tracking** — Live update of registered users per camp.
+6. 💬 **Feedback & Ratings** — Users can provide post-payment feedback with star ratings.
+7. 📍 **Camp Details Page** — View all camp information with a "Join Camp" modal form.
+8. 📄 **Payment History** — Participants can review past payments with transaction IDs.
+9. ✅ **Confirmation System** — Admin can confirm participant registration status.
+10. 📱 **Responsive UI** — Mobile-first, clean interface built with React, TailwindCSS, and DaisyUI.
+
+

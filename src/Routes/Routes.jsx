@@ -19,6 +19,7 @@ import AvailableCamps from "../Pages/Available/AvailableCamps";
 import CampDetails from "../Pages/Home/CampDetails";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import AllFeedbacks from "../Pages/Home/AllFeedbacks";
+import NotFoundPage from "../Components/NotFoundPage";
 
 
 export const routes = createBrowserRouter([
@@ -114,6 +115,10 @@ export const routes = createBrowserRouter([
                 element: <PaymentHistory></PaymentHistory>
             }
         ]
+    },
+    {
+        path: '*',
+        Component: NotFoundPage
     }
 
 ])
