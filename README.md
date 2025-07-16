@@ -5,7 +5,7 @@
 - **Password:** 11ssSS
 
 ### 🌐 Live Site URL:
-[Visit MediCamp Live 🚀](https://carebridge-f2765.web.app)
+[https://carebridge-f2765.web.app]
 
 ---
 

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import UseAuth from "../../../Hooks/useAuth";
+import { uploadPhoto } from "../../../Components/SharedComponents/Utils";
 
 
 const FeedbackModal = ({ isOpen, onClose, regData }) => {
@@ -21,6 +22,9 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
     const comment = watch('comment')
 
     const onSubmit = async (data) => {
+
+        const photo =await uploadPhoto(user?.photoURL)
+
         const feedbackData = {
             registrationId: regData._id,
             campId: regData.campId,
@@ -30,7 +34,8 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
             rating: parseFloat(rating),
             comment: data.comment,
             date: new Date().toISOString(),
-            photo: user?.photoURL
+            photo,
+            campPhoto: regData?.photo
         };
        
           try {

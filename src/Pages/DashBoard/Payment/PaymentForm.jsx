@@ -17,7 +17,7 @@ const PaymentForm = () => {
     const [complete, setComplete] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
-    const navigate = useNavigate()
+
 
     const {
         data: registered = {},
@@ -101,11 +101,8 @@ const PaymentForm = () => {
                         confirm_status: ''
                     }
 
-                    const res = await axiosSecure.post('/payments', paymentData);
-                    if (res?.data.insertedId) {
-                        // navigate('/dashboard/registered-camps')
-
-                    }
+                    await axiosSecure.post('/payments', paymentData);
+                  
                     refetch()
                 }
             }
@@ -124,20 +121,20 @@ const PaymentForm = () => {
 
             <form onSubmit={handlePayment} className="space-y-6">
                 <div className="p-4 rounded-md border border-gray-300 bg-gray-50 focus-within:ring-2 focus-within:ring-indigo-500">
-                    <CardElement 
-                    className="p-2 text-gray-700 text-base" 
-                    onChange={(e)=> setComplete(e.complete)}
+                    <CardElement
+                        className="p-2 text-gray-700 text-base"
+                        onChange={(e) => setComplete(e.complete)}
                     />
                 </div>
 
                 {error && <p className="text-rose-600 text-sm text-center">{error}</p>}
                 {succeeded && <p className="text-green-600 text-sm text-center">Payment successful!</p>}
-
+                 {!complete && <p className='text-yellow-500'>Complete the card to enable the button</p>}
                 <button
                     type="submit"
-                    disabled={!stripe || 
-                        processing || 
-                        succeeded || 
+                    disabled={!stripe ||
+                        processing ||
+                        succeeded ||
                         // registered?.payment_status === 'paid'
                         !complete
                     }
