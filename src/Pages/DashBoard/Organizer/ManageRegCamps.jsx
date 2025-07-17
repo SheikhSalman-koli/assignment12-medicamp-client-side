@@ -2,22 +2,33 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
+import { useEffect, useState } from 'react';
+import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
 
 const ManageRegCamps = () => {
 
     const axiosSecure = useAxiosSecure();
+    const [search, setSearch] = useState('')
+    const [searchInput, setSearchInput] = useState("");
 
     const {
         data: registeredCamps = [],
         refetch,
         isLoading
     } = useQuery({
-        queryKey: ['registeredCamps'],
+        queryKey: ['registeredCamps', search],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/regConfirmation`);
+            const res = await axiosSecure.get(`/regConfirmation?searchParams=${search}`);
             return res.data;
         },
     });
+
+    // useEffect(()=>{
+    //     const timeOut = setTimeout(()=>{
+    //         setSearch(input)
+    //     }, 800)
+    //     return()=> clearTimeout(timeOut)
+    // },[input])
 
     const handleCancel = async (id, campId) => {
         const confirm = await Swal.fire({
@@ -37,7 +48,7 @@ const ManageRegCamps = () => {
             }
         }
     };
-    
+
 
     const handleConfirm = async (id) => {
         const result = await Swal.fire({
@@ -52,18 +63,26 @@ const ManageRegCamps = () => {
         });
         if (result.isConfirmed) {
             const res = await axiosSecure.patch(`/update-confirmation/${id}`)
-            if(res?.data?.modifiedCount){
+            if (res?.data?.modifiedCount) {
                 refetch()
             }
         }
     }
-
+    // console.log(registeredCamps);
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
         <div className="p-4">
             <h2 className="text-2xl font-bold mb-4 text-center">Manage Registered Camps</h2>
+            {/* reusable search input */}
+            <AllTableSearch
+                // searchValue={input}
+                value={searchInput}
+                onChange={setSearchInput}
+                onDebouncedChange={setSearch}
+                placeholder="Search"
+            ></AllTableSearch>
 
             <div className="overflow-x-auto">
                 <table className="w-full border text-sm md:text-base">

@@ -6,23 +6,26 @@ import UseAuth from '../../../Hooks/useAuth';
 import { useState } from 'react';
 import EditCampModal from './EditCampModal';
 import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
+import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
 
 const ManageCamps = () => {
     const axiosSecure = useAxiosSecure();
     const { user } = UseAuth();
     const queryClient = useQueryClient();
     const [selectedCamp, setSelectedCamp] = useState(null);
+    const [search, setSearch] = useState('')
+    const [searchInput, setSearchInput] = useState('')
     // Fetch all camps created by this organizer
     const {
         data: camps = [],
         isLoading
     } = useQuery({
-        queryKey: ['organizerCamps', user?.email],
+        queryKey: ['organizerCamps',  search], //user?.email,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/camps?email=${user?.email}`);
+            const res = await axiosSecure.get(`/camps?searchParams=${search}`); //email=${user?.email}&
             return res.data;
         },
-        enabled: !!user?.email,
+        // enabled: !!user?.email,
     });
 
     // Delete camp mutation
@@ -60,7 +63,12 @@ const ManageCamps = () => {
     return (
         <div className="w-full p-4 md:p-8">
             <h2 className="text-2xl font-bold mb-6 text-center">Manage Your Camps</h2>
-
+                <AllTableSearch
+                value={searchInput}
+                onChange={setSearchInput}
+                onDebouncedChange={setSearch}
+                placeholder='search'
+                ></AllTableSearch>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border rounded shadow text-sm md:text-base border-collapse">
                     <thead className="bg-blue-600 text-white">

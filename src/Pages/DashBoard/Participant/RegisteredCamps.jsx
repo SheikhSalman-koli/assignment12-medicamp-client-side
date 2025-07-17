@@ -7,6 +7,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
 import FeedbackModal from './FeedbackModal';
+import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
 
 const RegisteredCamps = () => {
     const { user } = UseAuth();
@@ -15,15 +16,18 @@ const RegisteredCamps = () => {
 
     const [isOpen, setIsopen] = useState(null)
 
+    const [search, setSearch] = useState('')
+    const [searchInput, setSearchInput] = useState('')
+
     const {
         data: registrations = [],
         isLoading,
         refetch
     } = useQuery({
-        queryKey: ['registeredCamps', user?.email],
+        queryKey: ['registeredCamps', user?.email, search],
         enabled: !!user?.email,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/registrations?email=${user?.email}`);
+            const res = await axiosSecure.get(`/registrations?email=${user?.email}&searchParams=${search}`);
             return res.data;
         },
     });
@@ -71,7 +75,12 @@ const RegisteredCamps = () => {
     return (
         <div className="p-6">
             <h2 className="text-2xl font-bold mb-4">Your Registered Camps</h2>
-
+            <AllTableSearch
+                value={searchInput}
+                onChange={setSearchInput}
+                onDebouncedChange={setSearch}
+                placeholder='search'
+            ></AllTableSearch>
             <div className="overflow-x-auto">
                 <table className="table w-full border-collapse">
                     <thead>
@@ -132,7 +141,7 @@ const RegisteredCamps = () => {
                                             Feedback
                                         </button>
                                     }
-                                    
+
                                     {/* Cancel Button */}
                                     <button
                                         disabled={camp?.payment_status === 'paid'}
