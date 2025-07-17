@@ -29,23 +29,17 @@ const UserProfile = () => {
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm({
-        defaultValues: {
-            name: participant?.name,
-            photo: participant?.photo,
-            contact: participant?.contact || '01902849384'
-        },
-    });
+    } = useForm();
 
-    // useEffect(() => {
-    //     if (participant) {
-    //         reset({
-    //             name: participant.name,
-    //             photo: participant.photo,
-    //             contact: participant.contact || '01902849384',
-    //         });
-    //     }
-    // }, [participant, reset]);
+    useEffect(() => {
+        if (participant) {
+            reset({
+                name: participant.name,
+                photo: participant.photo,
+                contact: participant.contact || '01902849384',
+            });
+        }
+    }, [participant, reset]);
 
     const {
         mutateAsync: updateProfile,

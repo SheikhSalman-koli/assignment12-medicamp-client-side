@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import UseAuth from '../../../Hooks/useAuth';
 import { uploadPhoto } from '../../../Components/SharedComponents/Utils';
@@ -12,6 +12,7 @@ const OrganizerProfile = () => {
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient()
     const [editing, setEditing] = useState(false);
+    
 
     // Fetch organizer info
     const { data: organizer = {}, isLoading } = useQuery({
@@ -55,6 +56,16 @@ const OrganizerProfile = () => {
         // console.log(updatedData);
         await updateProfile(updatedData);
     };
+
+    useEffect(()=>{
+        if(organizer){
+            reset({
+            name: organizer?.name,
+            photo: organizer?.photo,
+            contact: organizer?.contact
+        })
+        }
+    },[organizer, reset])
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 

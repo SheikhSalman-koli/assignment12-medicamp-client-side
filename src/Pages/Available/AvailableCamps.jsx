@@ -2,9 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import AvailableCard from './AvailableCard';
 import LoaderSpinner from '../../Components/SharedComponents/LoaderSpinner';
-import { IoSearch } from "react-icons/io5";
 import { useEffect, useState } from 'react';
-import debounce from 'lodash.debounce';
 
 const AvailableCamps = () => {
   const axiosSecure = useAxiosSecure();
@@ -12,7 +10,7 @@ const AvailableCamps = () => {
   const [search, setSearch] = useState('')
   const [input, setInput] = useState('')
   const [sortOption, setSortOption] = useState('')
-  
+
   useEffect(() => {
     const timeout = setTimeout(() => {
       setSearch(input);
@@ -47,7 +45,7 @@ const AvailableCamps = () => {
     <section className="py-12 px-4 md:px-10">
       <h2 className="text-3xl font-bold text-center mb-8 text-green-700">All Available Camps</h2>
 
-      <div className='flex justify-around flex-col md:flex-row gap-3 mb-4'>
+      <div className='flex justify-between flex-col md:flex-row gap-3 mb-4'>
         <label className="input">
           <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g
