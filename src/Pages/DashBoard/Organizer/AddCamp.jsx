@@ -21,7 +21,7 @@ const AddCamp = () => {
     setProccess(true)
     const newCamp = {
       campName: data?.campName,
-      fees: parseFloat(data?.fees),
+      fees: parseInt(data?.fees),
       dateTime: new Date(data?.dateTime).toISOString(),
       location: data?.location,
       doctor: data?.doctor,
