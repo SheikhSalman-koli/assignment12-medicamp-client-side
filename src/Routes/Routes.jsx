@@ -86,7 +86,7 @@ export const routes = createBrowserRouter([
                 element: <OrganizerRoute>
                     <ManageCamps></ManageCamps>
                 </OrganizerRoute>,
-                loader:() => fetch(`${import.meta.env.VITE_BASE_URL}/countForManage`)
+                // loader:() => fetch(`${import.meta.env.VITE_BASE_URL}/countForManage`)
             },
             {
                 path: 'manage-registered',

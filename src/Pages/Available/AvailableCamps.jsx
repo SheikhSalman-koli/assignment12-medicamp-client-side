@@ -18,11 +18,9 @@ const AvailableCamps = () => {
     return () => clearTimeout(timeout);
   }, [input]);
 
-
   const {
     data: camps = [],
     isLoading,
-    isFetching,
     isError
   } = useQuery({
     queryKey: ['allCamps', search, sortOption],
@@ -35,8 +33,6 @@ const AvailableCamps = () => {
   const handleToggle = () => {
     setIsTowColumns(!isTowColumns)
   }
-
-  // console.log(camps);
 
   if (isLoading) return <LoaderSpinner></LoaderSpinner>
   if (isError) return <p className="text-center py-10 text-red-500">Failed to load camps.</p>;
