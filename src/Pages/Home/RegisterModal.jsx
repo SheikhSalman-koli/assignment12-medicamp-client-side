@@ -11,8 +11,8 @@ const RegisterModal = ({ camp, onClose, onSubmit }) => {
 } = useForm();
 
   const handleFormSubmit = (data) => {
-    onSubmit(data); // Pass to parent
-    onClose();      // Close modal
+    onSubmit(data)
+    onClose()    
   };
 
   return (

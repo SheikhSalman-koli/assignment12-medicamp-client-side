@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { auth } from '../Components/firebase/initialize';
-import { 
+import {
     createUserWithEmailAndPassword,
     GoogleAuthProvider,
     onAuthStateChanged,
@@ -9,25 +9,25 @@ import {
     signInWithPopup,
     signOut,
     updateProfile,
-        
+
 } from 'firebase/auth';
 import axios from 'axios';
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
 
     const provider = new GoogleAuthProvider()
-  
- const [user, setUser] = useState({})
+
+    const [user, setUser] = useState({})
     const [loading, setLoading] = useState(true)
     // console.log(user);
 
-    const createUser = (email,password) => {
+    const createUser = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
-    const updateUser =(updatedfile)=>{
-        return updateProfile(auth.currentUser ,updatedfile)
+    const updateUser = (updatedfile) => {
+        return updateProfile(auth.currentUser, updatedfile)
     }
 
     const signInUser = (email, password) => {
@@ -40,42 +40,42 @@ const AuthProvider = ({children}) => {
         return signInWithPopup(auth, provider)
     }
 
-    const logout =()=>{
+    const logout = () => {
         localStorage.removeItem('token')
         return signOut(auth)
     }
 
 
-    useEffect(()=>{
-        const unSubscribe = onAuthStateChanged(auth, (currentUser)=>{
-                setUser(currentUser)
-                if(currentUser?.email){
-                    axios.post(`${import.meta.env.VITE_BASE_URL}/jwt`, {
-                        email: currentUser?.email
+    useEffect(() => {
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            if (currentUser?.email) {
+                axios.post(`${import.meta.env.VITE_BASE_URL}/jwt`, {
+                    email: currentUser?.email
+                })
+                    .then(res => {
+                        localStorage.setItem('token', res?.data?.token);
                     })
-                    .then(res=> {
-                        localStorage.setItem('token',res?.data.token);
-                    })
-                }else{
-                    localStorage.removeItem('token')
-                }
-                setLoading(false)
-            
+            } else {
+                localStorage.removeItem('token')
+            }
+            setLoading(false)
+
         })
-        
-        return ()=> {
+
+        return () => {
             unSubscribe()
         }
-    },[])
+    }, [])
 
     const allFunc = {
-       createUser,
-       loading,
-       user,
-       logout,
-       signInUser,
-       updateUser,
-       signInWithGoogle
+        createUser,
+        loading,
+        user,
+        logout,
+        signInUser,
+        updateUser,
+        signInWithGoogle
     }
 
     return (
