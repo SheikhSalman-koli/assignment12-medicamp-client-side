@@ -21,7 +21,7 @@ const PaymentHistory = () => {
       const res = await axiosSecure.get(`/payments?email=${user?.email}&searchParams=${search}`);
       return res?.data;
     },
-    // enabled: !!user?.email,
+    enabled: !!user?.email,
   });
 
   if (isLoading) return <LoaderSpinner></LoaderSpinner>

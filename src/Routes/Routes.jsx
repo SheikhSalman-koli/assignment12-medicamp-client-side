@@ -91,7 +91,8 @@ export const routes = createBrowserRouter([
                 path: 'manage-registered',
                 element: <OrganizerRoute>
                     <ManageRegCamps></ManageRegCamps>
-                </OrganizerRoute>
+                </OrganizerRoute>,
+                loader:() => fetch(`${import.meta.env.VITE_BASE_URL}/count`)
             },
 
             {

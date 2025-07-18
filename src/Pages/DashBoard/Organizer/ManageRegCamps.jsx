@@ -4,24 +4,46 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 import { useEffect, useState } from 'react';
 import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
+import { MdKeyboardDoubleArrowRight, MdOutlineKeyboardDoubleArrowLeft } from "react-icons/md";
+import './button.css'
+import { useLoaderData } from 'react-router';
 
 const ManageRegCamps = () => {
 
     const axiosSecure = useAxiosSecure();
     const [search, setSearch] = useState('')
     const [searchInput, setSearchInput] = useState("");
+    const [currentPage, setCurrentPage] = useState(0)
+
+    const perPage = 10
+    const items = useLoaderData()
+    const numberOfPages = Math.ceil(items / perPage)
+    const pages = [...Array(numberOfPages).keys()]
+
 
     const {
         data: registeredCamps = [],
         refetch,
         isLoading
     } = useQuery({
-        queryKey: ['registeredCamps', search],
+        queryKey: ['registeredCamps', search, currentPage, perPage],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/regConfirmation?searchParams=${search}`);
+            const res = await axiosSecure.get(`/regConfirmation?searchParams=${search}&page=${currentPage}&size=${perPage}`);
             return res.data;
         },
     });
+
+    const handlePrev = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    const handleNext = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
 
     // useEffect(()=>{
     //     const timeOut = setTimeout(()=>{
@@ -69,6 +91,7 @@ const ManageRegCamps = () => {
         }
     }
     // console.log(registeredCamps);
+
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
@@ -139,6 +162,16 @@ const ManageRegCamps = () => {
                 {registeredCamps.length === 0 && (
                     <p className="text-center text-gray-500 py-4">No registrations found.</p>
                 )}
+            </div>
+            <div className='text-center my-4 pagination'>
+                <button onClick={handlePrev} className='btn'><MdOutlineKeyboardDoubleArrowLeft /></button>
+                {pages.map((page) => <button
+                    onClick={() => setCurrentPage(page)}
+                    key={page}
+                    className={`btn ${currentPage === page && 'selected'}`}
+                >
+                    {page + 1}</button>)}
+                <button onClick={handleNext} className='btn'><MdKeyboardDoubleArrowRight /></button>
             </div>
         </div>
     );
