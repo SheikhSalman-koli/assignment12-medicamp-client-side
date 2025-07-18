@@ -12,7 +12,7 @@ const OrganizerProfile = () => {
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient()
     const [editing, setEditing] = useState(false);
-    
+
 
     // Fetch organizer info
     const { data: organizer = {}, isLoading } = useQuery({
@@ -57,15 +57,15 @@ const OrganizerProfile = () => {
         await updateProfile(updatedData);
     };
 
-    useEffect(()=>{
-        if(organizer){
+    useEffect(() => {
+        if (organizer?.name || organizer?.photo || organizer?.contact) {
             reset({
-            name: organizer?.name,
-            photo: organizer?.photo,
-            contact: organizer?.contact
-        })
+                name: organizer?.name,
+                photo: organizer?.photo,
+                contact: organizer?.contact
+            })
         }
-    },[organizer, reset])
+    }, [organizer?.name || organizer?.photo || organizer?.contact])
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 

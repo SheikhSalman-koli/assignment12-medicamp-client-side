@@ -32,14 +32,14 @@ const UserProfile = () => {
     } = useForm();
 
     useEffect(() => {
-        if (participant) {
+        if (participant?.name || participant?.photo || participant?.contact) {
             reset({
                 name: participant.name,
                 photo: participant.photo,
                 contact: participant.contact || '01902849384',
             });
         }
-    }, [participant, reset]);
+    }, [participant?.name || participant?.photo || participant?.contact]);
 
     const {
         mutateAsync: updateProfile,

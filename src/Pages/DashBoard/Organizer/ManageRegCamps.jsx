@@ -13,13 +13,16 @@ const ManageRegCamps = () => {
     const axiosSecure = useAxiosSecure();
     const [search, setSearch] = useState('')
     const [searchInput, setSearchInput] = useState("");
+    
     const [currentPage, setCurrentPage] = useState(0)
-
     const perPage = 10
     const items = useLoaderData()
     const numberOfPages = Math.ceil(items / perPage)
     const pages = [...Array(numberOfPages).keys()]
 
+      useEffect(()=>{
+        setCurrentPage(0)
+    },[search])
 
     const {
         data: registeredCamps = [],
@@ -163,7 +166,7 @@ const ManageRegCamps = () => {
                     <p className="text-center text-gray-500 py-4">No registrations found.</p>
                 )}
             </div>
-            <div className='text-center my-4 pagination'>
+            <div className={`text-center my-4 pagination`}>
                 <button onClick={handlePrev} className='btn'><MdOutlineKeyboardDoubleArrowLeft /></button>
                 {pages.map((page) => <button
                     onClick={() => setCurrentPage(page)}

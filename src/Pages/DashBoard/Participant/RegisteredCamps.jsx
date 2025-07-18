@@ -5,9 +5,10 @@ import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FeedbackModal from './FeedbackModal';
 import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
+import { MdKeyboardDoubleArrowRight, MdOutlineKeyboardDoubleArrowLeft } from 'react-icons/md';
 
 const RegisteredCamps = () => {
     const { user } = UseAuth();
@@ -15,22 +16,44 @@ const RegisteredCamps = () => {
     const navigate = useNavigate()
 
     const [isOpen, setIsopen] = useState(null)
-
     const [search, setSearch] = useState('')
     const [searchInput, setSearchInput] = useState('')
 
+    const [currentPage, setCurrentPage] = useState(0)
+    const perPage = 10
+    useEffect(()=>{
+        setCurrentPage(0)
+    },[search])
+
     const {
-        data: registrations = [],
+        data = {},
         isLoading,
         refetch
     } = useQuery({
-        queryKey: ['registeredCamps', user?.email, search],
+        queryKey: ['registeredCamps', user?.email, search, currentPage, perPage],
         enabled: !!user?.email,
         queryFn: async () => {
-            const res = await axiosSecure.get(`/registrations?email=${user?.email}&searchParams=${search}`);
+            const res = await axiosSecure.get(`/registrations?email=${user?.email}&searchParams=${search}&page=${currentPage}&size=${perPage}`);
             return res.data;
         },
-    });
+    }); //pagination
+    const items = data?.total || 0
+    const registrations = data?.data || []
+    const numberOfPages = Math.ceil(items / perPage)
+    const pages = [...Array(numberOfPages).keys()]
+    // console.log(pages);
+
+    const handlePrev = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    const handleNext = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
 
     // make payment
     const handlePayment = (id) => {
@@ -155,6 +178,16 @@ const RegisteredCamps = () => {
                         ))}
                     </tbody>
                 </table>
+                <div className={`text-center my-4 pagination`}>
+                    <button onClick={handlePrev} className='btn'><MdOutlineKeyboardDoubleArrowLeft /></button>
+                    {pages.map((page) => <button
+                        onClick={() => setCurrentPage(page)}
+                        key={page}
+                        className={`btn ${currentPage === page && 'selected'}`}
+                    >
+                        {page + 1}</button>)}
+                    <button onClick={handleNext} className='btn'><MdKeyboardDoubleArrowRight /></button>
+                </div>
             </div>
             {
                 isOpen && <FeedbackModal
@@ -167,3 +200,4 @@ const RegisteredCamps = () => {
     );
 };
 export default RegisteredCamps;
+

@@ -42,6 +42,7 @@ const AddCamp = () => {
       if(res?.data?.insertedId){
         setProccess(false)
         Swal.fire('A camp added successfully!')
+        reset()
       }
     } catch (error) {
       toast.error(error.message);
@@ -149,7 +150,7 @@ const AddCamp = () => {
           <button
             type="submit"
             disabled={proccess}
-            className="w-full bg-blue-600 text-white py-2 font-semibold rounded hover:bg-blue-700 transition"
+            className={`w-full  text-white py-2 font-semibold rounded  transition ${proccess ? 'cursor-not-allowed bg-gray-300' : 'bg-blue-600 hover:bg-blue-700'}`}
           >
             {proccess ? 'proccessing to add...' : 'Add Camp'}
           </button>

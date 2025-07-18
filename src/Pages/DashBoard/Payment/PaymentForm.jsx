@@ -128,8 +128,10 @@ const PaymentForm = () => {
                 </div>
 
                 {error && <p className="text-rose-600 text-sm text-center">{error}</p>}
-                {succeeded && <p className="text-green-600 text-sm text-center">Payment successful!</p>}
-                 {!complete && <p className='text-yellow-500'>Complete the card to enable the button</p>}
+                {succeeded && <p className="text-green-600 text-[18px] text-center font-bold">Payment successful!</p>}
+                 {!complete && <p className='text-orange-600'>Complete the card to enable the button</p>}
+                 {processing && <p className='text-[#0a58ca] font-bold'>Please wait! your transaction is being processed</p>}
+
                 <button
                     type="submit"
                     disabled={!stripe ||

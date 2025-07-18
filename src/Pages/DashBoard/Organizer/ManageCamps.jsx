@@ -3,10 +3,13 @@ import { FaEdit, FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import UseAuth from '../../../Hooks/useAuth';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import EditCampModal from './EditCampModal';
 import LoaderSpinner from '../../../Components/SharedComponents/LoaderSpinner';
 import AllTableSearch from '../../../Components/SharedComponents/AllTableSearch';
+import { useLoaderData } from 'react-router';
+import './button.css'
+import { MdKeyboardDoubleArrowRight, MdOutlineKeyboardDoubleArrowLeft } from 'react-icons/md';
 
 const ManageCamps = () => {
     const axiosSecure = useAxiosSecure();
@@ -15,18 +18,45 @@ const ManageCamps = () => {
     const [selectedCamp, setSelectedCamp] = useState(null);
     const [search, setSearch] = useState('')
     const [searchInput, setSearchInput] = useState('')
+    // pagination
+    // const coutn = useLoaderData()
+    const [currentPage, setCurrentPage] = useState(0)
+    const itemPerPage = 10
+    useEffect(()=>{
+        setCurrentPage(0)
+    },[search])
+    // console.log(pages);
     // Fetch all camps created by this organizer
     const {
-        data: camps = [],
+        data = {},
         isLoading
     } = useQuery({
-        queryKey: ['organizerCamps',  search], //user?.email,
+        queryKey: ['organizerCamps', user?.email, search, currentPage, itemPerPage],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/camps?searchParams=${search}`); //email=${user?.email}&
+            const res = await axiosSecure.get(`/camps?email=${user?.email}&searchParams=${search}&page=${currentPage}&size=${itemPerPage}`);
             return res.data;
         },
-        // enabled: !!user?.email,
+        enabled: !!user?.email,
     });
+    const items = data.total || 0;
+    const camps = data.data || [];
+    const numberOfPages = Math.ceil(items / itemPerPage)
+    const pages = [...Array(numberOfPages).keys()]
+
+
+
+    const handlePrev = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    const handleNext = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
+
 
     // Delete camp mutation
     const { mutateAsync: deleteCamp } = useMutation({
@@ -63,12 +93,12 @@ const ManageCamps = () => {
     return (
         <div className="w-full p-4 md:p-8">
             <h2 className="text-2xl font-bold mb-6 text-center">Manage Your Camps</h2>
-                <AllTableSearch
+            <AllTableSearch
                 value={searchInput}
                 onChange={setSearchInput}
                 onDebouncedChange={setSearch}
                 placeholder='search'
-                ></AllTableSearch>
+            ></AllTableSearch>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white border rounded shadow text-sm md:text-base border-collapse">
                     <thead className="bg-blue-600 text-white">
@@ -122,6 +152,15 @@ const ManageCamps = () => {
                         )}
                     </tbody>
                 </table>
+                <div className={`text-center pagination my-5`}>
+                    <button onClick={handlePrev} className='btn'><MdOutlineKeyboardDoubleArrowLeft /></button>
+                    {pages.map(page => <button
+                        key={page}
+                        onClick={() => setCurrentPage(page)}
+                        className={`btn ${currentPage === page && 'selected'}`}
+                    >{page + 1}</button>)}
+                    <button onClick={handleNext} className='btn'><MdKeyboardDoubleArrowRight /></button>
+                </div>
             </div>
             {selectedCamp && (
                 <EditCampModal

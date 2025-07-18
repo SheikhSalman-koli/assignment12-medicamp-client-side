@@ -15,8 +15,6 @@ const Home = () => {
             <HighestParticipant></HighestParticipant>
             <FeedbackAndRatings></FeedbackAndRatings>
             <HomeActionSection></HomeActionSection>
-            {/* <BeVolunteer></BeVolunteer>
-            <Donate></Donate> */}
         </div>
     );
 };

@@ -6,12 +6,17 @@ import { FaRegStar, FaStar } from "react-icons/fa";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import UseAuth from "../../../Hooks/useAuth";
 import { uploadPhoto } from "../../../Components/SharedComponents/Utils";
-
+// import { Rating } from 'react-simple-star-rating'
 
 const FeedbackModal = ({ isOpen, onClose, regData }) => {
-    const {user} = UseAuth()
+    const { user } = UseAuth()
     const axiosSecure = useAxiosSecure()
+    const [load, setLoad] = useState(false)
     const [rating, setRating] = useState(0);
+
+    // const handleRating = (rate) => {
+    //     setRating(rate)
+    // }
 
     const {
         register,
@@ -22,8 +27,8 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
     const comment = watch('comment')
 
     const onSubmit = async (data) => {
-
-        const photo =await uploadPhoto(user?.photoURL)
+        setLoad(true)
+        const photo = await uploadPhoto(user?.photoURL)
 
         const feedbackData = {
             registrationId: regData._id,
@@ -37,15 +42,16 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
             photo,
             campPhoto: regData?.photo
         };
-       
-          try {
+
+        try {
             await axiosSecure.post('/feedback', feedbackData);
             Swal.fire('Thank you!', 'Your feedback has been submitted.', 'success');
             reset();
+            setLoad(false)
             onClose();
-          } catch (error) {
+        } catch (error) {
             Swal.fire('Error', `Failed to submit feedback for ${error.message}`, 'error');
-          }
+        }
     };
 
     if (!isOpen) return null;
@@ -61,7 +67,7 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
                 </div>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-  
+
                     <div className="text-center">
                         {/* <label className="block font-medium mb-1">Your Rating:</label> */}
                         <Rating
@@ -70,6 +76,12 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
                             fullSymbol={<FaStar className="text-yellow-500 text-2xl" />}
                             onChange={(rate) => setRating(rate)}
                         />
+
+                        {/* <Rating
+                            onClick={handleRating}
+                            initialValue={rating}
+                            className="inline-block"                       
+                        /> */}
                     </div>
 
                     <label className="block">
@@ -81,15 +93,15 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
                     </label>
 
                     <div className="flex justify-between gap-2">
-                        <button type="button" 
-                        onClick={onClose} 
-                        className="text-gray-500 btn">
-                        Cancel</button>
+                        <button type="button"
+                            onClick={onClose}
+                            className="text-gray-500 btn">
+                            Cancel</button>
 
-                        <button type="submit" 
-                        className="bg-blue-600 text-white px-4 py-2 rounded disabled:cursor-not-allowed disabled:opacity-50"
-                        disabled={!rating || !comment}
-                        >Submit</button>
+                        <button type="submit"
+                            className={`${load || !comment && 'cursor-not-allowed opacity-50'} bg-blue-600 text-white px-4 py-2 rounded `}
+                            disabled={!rating || !comment || load}
+                        >{load ? 'Submit...' : 'Submit'}</button>
                     </div>
                 </form>
             </div>

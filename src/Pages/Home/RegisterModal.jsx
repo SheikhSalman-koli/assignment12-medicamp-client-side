@@ -130,20 +130,20 @@ const RegisterModal = ({ camp, onClose, onSubmit }) => {
 
           {/* Actions */}
           <div className="col-span-1 md:col-span-2 flex justify-between gap-3 mt-4">
-             <button
-              type="submit"
-              className="btn btn-primary"
-            >
-              Submit
-            </button>
-            <button
+                 <button
               type="button"
               onClick={onClose}
               className="btn btn-outline"
             >
               Cancel
             </button>
-           
+
+             <button
+              type="submit"
+              className="btn btn-primary"
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>
