@@ -19,7 +19,7 @@ const HighestParticipant = () => {
         },
     });
 
-    console.log(camps);
+    // console.log(camps);
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
     if (isError) return <p className="text-center py-10 text-red-500">Something went wrong.</p>;
