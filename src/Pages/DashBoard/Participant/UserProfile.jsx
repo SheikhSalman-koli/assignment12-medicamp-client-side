@@ -34,9 +34,9 @@ const UserProfile = () => {
     useEffect(() => {
         if (participant?.name || participant?.photo || participant?.contact) {
             reset({
-                name: participant.name,
-                photo: participant.photo,
-                contact: participant.contact || '01902849384',
+                name: participant?.name,
+                photo: participant?.photo,
+                contact: participant?.contact || '',
             });
         }
     }, [participant?.name || participant?.photo || participant?.contact]);

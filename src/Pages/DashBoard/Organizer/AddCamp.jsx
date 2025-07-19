@@ -21,7 +21,7 @@ const AddCamp = () => {
     setProccess(true)
     const newCamp = {
       campName: data?.campName,
-      fees: parseInt(data?.fees),
+      fees: data?.fees,
       dateTime: new Date(data?.dateTime).toISOString(),
       location: data?.location,
       doctor: data?.doctor,
@@ -69,7 +69,7 @@ const AddCamp = () => {
         {/* image */}
         <div>
           <label className="label">
-            <span className="label-text">Photo URL</span>
+            <span className="label-text">Upload Photo ( low size )</span>
           </label>
           <input
             type="file"

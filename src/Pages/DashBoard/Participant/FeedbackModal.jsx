@@ -101,7 +101,7 @@ const FeedbackModal = ({ isOpen, onClose, regData }) => {
                         <button type="submit"
                             className={`${load || !comment && 'cursor-not-allowed opacity-50'} bg-blue-600 text-white px-4 py-2 rounded `}
                             disabled={!rating || !comment || load}
-                        >{load ? 'Submit...' : 'Submit'}</button>
+                        >{load ? 'Submiting...' : 'Submit'}</button>
                     </div>
                 </form>
             </div>

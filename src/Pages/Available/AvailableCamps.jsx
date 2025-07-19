@@ -29,7 +29,7 @@ const AvailableCamps = () => {
       return res.data;
     },
   });
-
+//  console.log(camps);
   const handleToggle = () => {
     setIsTowColumns(!isTowColumns)
   }
