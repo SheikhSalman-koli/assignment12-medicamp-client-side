@@ -53,7 +53,7 @@ Built with React, TailwindCSS, and DaisyUI, Medicamp features a responsive, mobi
 
 ## Setup & Installation  
 ```bash
-git clone https://github.com/SheikhSalman-koli/assignment11-lost-found-client-side.git
+git clone https://github.com/SheikhSalman-koli/assignment12-medicamp-client-side.git
 cd your project name
 npm install
 npm run dev
