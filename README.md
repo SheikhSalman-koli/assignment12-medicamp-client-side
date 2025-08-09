@@ -14,7 +14,8 @@ Participants can submit feedback and ratings after registration, view comprehens
 Built with React, TailwindCSS, and DaisyUI, Medicamp features a responsive, mobile-first interface that delivers a smooth and engaging user experience across all devices.
 
 ## Dynamic Ratings & Feedbacks, SslCommerz (payment getway)
-![Ratings & Feedbacks](https://i.ibb.co.com/NgwwHDB6/Screenshot-2025-08-09-122157.png)(https://i.ibb.co.com/Ng3SHCNf/Screenshot-2025-08-09-134509.png)
+![Ratings & Feedbacks](https://i.ibb.co.com/NgwwHDB6/Screenshot-2025-08-09-122157.png)
+![ssl-commerz payment getway](https://i.ibb.co.com/Ng3SHCNf/Screenshot-2025-08-09-134509.png)
 
 
 ## 📌 Core Features
