@@ -24,7 +24,7 @@ const AllFeedbacks = () => {
 
 
     return (
-        <div className="p-4">
+        <div className="max-w-11/12 mx-auto pt-24">
             <h2 className="text-2xl font-semibold mb-4 text-center">Participant Feedback and Ratings</h2>
 
             <div className="grid gap-4 md:grid-cols-2">

@@ -23,7 +23,7 @@ const FeedbackAndRatings = () => {
   if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
   return (
-    <div className="p-4">
+    <div className="">
       <h2 className="text-2xl font-semibold mb-4 text-center">Participant Feedback and Ratings</h2>
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -45,13 +45,15 @@ const FeedbackAndRatings = () => {
         ))}
       </div>
      
-        <Link to='/all-feedback'>
+    <div className='flex justify-end'>
+          <Link to='/all-feedback'>
         <button
           className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded transition"
         >
           See More Feedback
         </button>
         </Link>
+    </div>
     
     </div>
   );

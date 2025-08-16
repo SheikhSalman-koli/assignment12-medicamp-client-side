@@ -5,6 +5,7 @@ import './nav.css'
 import UseAuth from '../../Hooks/useAuth';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import Swal from 'sweetalert2';
+import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const Navber = () => {
@@ -22,11 +23,13 @@ const Navber = () => {
 
     const links = <>
         <NavLink className='font-bold' to='/'>Home</NavLink>
-        <NavLink className='font-bold' to='/available'>Available Camps</NavLink>
+        <NavLink className='font-bold' to='/available'>All Camps</NavLink>
+        <NavLink className='font-bold' to='/all-feedback'>Feedbacks</NavLink>
     </>
+
     return (
-        <div>
-            <div className="navbar bg-base-100 shadow-sm px-4">
+        <div className='bg-base-100 shadow-sm fixed z-50 top-0 w-full '>
+            <div className="navbar  max-w-11/12 mx-auto p-0">
                 <div className="navbar-start">
                     {/* <a className="btn btn-ghost text-xl hidden lg:block">logo+name</a> */}
                     <div className="hidden lg:block">
@@ -34,19 +37,20 @@ const Navber = () => {
                     </div>
                     <div className="dropdown">
                         <div tabIndex={0} className="lg:hidden">
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg> */}
-                            <Logo></Logo>
+                            <GiHamburgerMenu />
                         </div>
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {links}
+                            {user && <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>}
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
+                        {user && <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>}
                     </ul>
                 </div>
 
@@ -54,7 +58,7 @@ const Navber = () => {
                     {user ? <>
                         <div className="dropdown">
                             <div tabIndex={0}>
-                                <img src={user?.photoURL} className='w-8 h-8 rounded-full border-1' alt="" />
+                                <img src={user?.photoURL} className='w-10 h-10 rounded-full border-1' alt="" />
                             </div>
                             <div
                                 tabIndex={0}
@@ -70,8 +74,12 @@ const Navber = () => {
                             </div>
 
                         </div>
-                    </> : <Link to='/signin' className='font-bold'>Join Us</Link>}
-
+                    </> :
+                        <>
+                            <Link to='/signin' className='font-bold mr-0 btn'>Sign In</Link>
+                            <Link to='/signup' className='font-bold mr-0 btn'>Sign Up</Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>

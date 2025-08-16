@@ -38,7 +38,7 @@ const AvailableCamps = () => {
   if (isError) return <p className="text-center py-10 text-red-500">Failed to load camps.</p>;
 
   return (
-    <section className="py-12 px-4 md:px-10">
+    <section className="py-12 pt-24 max-w-11/12 mx-auto ">
       <h2 className="text-3xl font-bold text-center mb-8 text-green-700">All Available Camps</h2>
 
       <div className='flex justify-between flex-col md:flex-row gap-3 mb-4'>
@@ -80,7 +80,7 @@ const AvailableCamps = () => {
           onClick={handleToggle}
           className={`${camps.length < 0 && 'invisible'} hidden md:block bg-blue-600 text-white btn rounded shadow hover:bg-blue-700 transition`}
         >
-          {isTowColumns ? 'switch to 3 column' : 'switch to 2 column'}
+          {isTowColumns ? 'switch to 4 column' : 'switch to 3 column'}
         </button>
 
       </div>
@@ -90,7 +90,7 @@ const AvailableCamps = () => {
         <div>
 
 
-          <div className={`grid grid-cols-1 ${isTowColumns ? 'md:grid-cols-2' : 'md:grid-cols-3'} grid-cols-1 gap-6`}>
+          <div className={`grid grid-cols-1 ${isTowColumns ? 'md:grid-cols-3' : 'md:grid-cols-4'} grid-cols-1 gap-6`}>
             {camps.map((camp) => <AvailableCard
               key={camp._id}
               camp={camp}

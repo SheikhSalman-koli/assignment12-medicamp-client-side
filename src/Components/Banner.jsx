@@ -25,11 +25,11 @@ const successStories = [
     title: 'Blood Donation Drive',
     description: 'Collected over 100 blood units to support emergency care services.'
   },
-  {
-    image: 'https://i.postimg.cc/yNSpgDVZ/women-s.jpg',
-    title: 'Women’s Wellness Camp',
-    description: 'Focused on maternal health and breast cancer awareness for 200+ women.'
-  },
+  // {
+  //   image: 'https://i.postimg.cc/yNSpgDVZ/women-s.jpg',
+  //   title: 'Women’s Wellness Camp',
+  //   description: 'Focused on maternal health and breast cancer awareness for 200+ women.'
+  // },
   {
     image: 'https://i.postimg.cc/Hkmb4j4M/senior.jpg',
     title: 'Senior Citizen Health Check',
@@ -50,11 +50,11 @@ const successStories = [
     title: 'Diabetes Screening Camp',
     description: 'Over 200 people screened, raising awareness about lifestyle diseases.'
   },
-  {
-    image: 'https://i.postimg.cc/XN2KWVWS/multy.jpg',
-    title: 'Multi-Specialty Health Fair',
-    description: 'Hosted 10+ medical specialists and served over 800 patients in one day.'
-  }
+  // {
+  //   image: 'https://i.postimg.cc/XN2KWVWS/multy.jpg',
+  //   title: 'Multi-Specialty Health Fair',
+  //   description: 'Hosted 10+ medical specialists and served over 800 patients in one day.'
+  // }
 ]
 
 

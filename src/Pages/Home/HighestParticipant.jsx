@@ -22,19 +22,19 @@ const HighestParticipant = () => {
     // console.log(camps);
 
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
-    if (isError) return <p className="text-center py-10 text-red-500">Something went wrong.</p>;
+    if (isError) return <p className="text-center  text-red-500">Something went wrong.</p>;
 
     return (
-        <section className="py-12">
+        <section className="">
             <h2 className="text-3xl font-bold text-center mb-8 text-blue-700">Popular Medical Camps</h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {camps.map((camp) => <AvailableCard
                     key={camp._id}
                     camp={camp}
                 ></AvailableCard>)}
             </div>
-            <div className="text-center mt-8">
+            <div className="flex justify-end mt-8 ">
                 <Link to="/available">
                     <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
                         See All Camps

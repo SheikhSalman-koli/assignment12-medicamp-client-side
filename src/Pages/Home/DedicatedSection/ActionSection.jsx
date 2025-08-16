@@ -10,7 +10,7 @@ export default function HomeActionSection() {
 
 
     return (
-        <section className="py-12 my-8 bg-gray-100 rounded-2xl">
+        <section className="py-12  bg-gray-100 rounded-2xl">
             <div className="max-w-6xl mx-auto px-4 rounded-2xl">
                 <h2 className="text-3xl font-bold text-center text-blue-700 mb-10">
                     Get Involved in Our Mission

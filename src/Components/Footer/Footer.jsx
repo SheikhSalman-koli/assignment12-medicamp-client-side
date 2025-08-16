@@ -18,18 +18,18 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-2">Quick Links</h4>
           <ul className="space-y-1">
-            <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
-            <li><Link to="/available" className="hover:text-blue-400">Available Camps</Link></li>
-            <li><Link to="/dashboard" className="hover:text-blue-400">Dashboard</Link></li>
-            <li><Link to="/all-feedback" className="hover:text-blue-400">Feedback & Ratings</Link></li>
+            <li><Link to="/" className="hover:text-blue-400  ">Home</Link></li>
+            <li><Link to="/available" className="hover:text-blue-400 ">Available Camps</Link></li>
+            <li><Link to="/dashboard" className="hover:text-blue-400 ">Dashboard</Link></li>
+            <li><Link to="/all-feedback" className="hover:text-blue-400 ">Feedback & Ratings</Link></li>
           </ul>
         </div>
 
         {/* Section 3: Contact Info */}
         <div className='space-y-2'>
-          <h4 className="font-semibold text-lg mb-2">Contact Me</h4>
+          <h4 className="font-semibold text-lg mb-2">Contact Us</h4>
           <p className="flex items-center gap-2"><FaPhone /> +880 1875 540 498</p>
-          <p className="flex items-center gap-2"><FaEnvelope /> support@medicamp.com</p>
+          <p className="flex items-center gap-2"><FaEnvelope /> assalmanmuhammad@gmail.com</p>
           <div className="flex gap-3 mt-2 text-xl">
             <a href="https://www.facebook.com/share/16RXBkwd1V/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
             <a href="https://m.me/sheikh.salman.257910" target="_blank" rel="noopener noreferrer"><FaFacebookMessenger /></a>

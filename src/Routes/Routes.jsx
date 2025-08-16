@@ -37,10 +37,11 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'camp-details/:campId',
-                // Component: CampDetails,
-                element: <PrivateRoute>
-                    <CampDetails></CampDetails>
-                </PrivateRoute>
+
+                Component: CampDetails,
+                // element: <PrivateRoute>
+                //     <CampDetails></CampDetails>
+                // </PrivateRoute>
             },
             {
                 path :'all-feedback',
