@@ -1,15 +1,25 @@
+
 # 🏥 MediCamp — Medical Camp Management Platform
 
-### 👤 Organizer Login:
-- **Email:** shahed@gmail.com  
-- **Password:** 11ssSS
+## 🌐 Live URL
+[👉 visit live link](https://carebridge-f2765.web.app)
 
-### 🌐 Live Site URL:
-[https://carebridge-f2765.web.app]
+## Site Overview  
+Medicamp is a secure, user-friendly platform designed to streamline the management and participation of medical camps. It offers role-based authentication, allowing both Participants and Organizers to access tailored features.
 
----
+Organizers can easily add, update, and delete camp events while participants can register seamlessly through integrated Stripe payment processing. The platform includes a personalized analytics dashboard providing real-time participant count tracking and detailed camp insights.
 
-## 📌 Features
+Participants can submit feedback and ratings after registration, view comprehensive camp details, and review their payment history complete with transaction IDs. Secure payment processing is supported through Stripe and SSL Commerz, ensuring smooth transactions for both local and international users. An admin confirmation system ensures registration statuses are accurately managed.
+
+Built with React, TailwindCSS, and DaisyUI, Medicamp features a responsive, mobile-first interface that delivers a smooth and engaging user experience across all devices.
+
+## Dynamic Ratings & Feedbacks, SslCommerz (payment getway)
+![Ratings & Feedbacks](https://i.ibb.co.com/NgwwHDB6/Screenshot-2025-08-09-122157.png)
+
+![ssl-commerz payment getway](https://i.ibb.co.com/Ng3SHCNf/Screenshot-2025-08-09-134509.png)
+
+
+## 📌 Core Features
 
 1. 🔐 **Secure Authentication** — Role-based login system for Participants and Organizers.
 2. 🗓️ **Camp Management** — Organizers can add, update, and delete medical camps.
@@ -21,5 +31,35 @@
 8. 📄 **Payment History** — Participants can review past payments with transaction IDs.
 9. ✅ **Confirmation System** — Admin can confirm participant registration status.
 10. 📱 **Responsive UI** — Mobile-first, clean interface built with React, TailwindCSS, and DaisyUI.
+
+
+## Technologies Used  
+- React  
+- Tailwind CSS
+- Daisy UI
+- Node.js  
+- Express  
+- MongoDB
+
+
+## Dependencies  
+- `react-router-dom`
+- `axios` 
+- `react-icons`
+- `@splidejs/react-splide` 
+- `react-toastify`
+- `react-tooltip`
+- `sweetalert2`
+- `react-hot-toast`
+- `stripe` (payment getway)
+- `ssl commerz` (payment getway)
+
+## Setup & Installation  
+```bash
+git clone https://github.com/SheikhSalman-koli/assignment12-medicamp-client-side.git
+cd your project name
+npm install
+npm run dev
+
 
 
