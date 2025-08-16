@@ -20,6 +20,7 @@ import CampDetails from "../Pages/Home/CampDetails";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import AllFeedbacks from "../Pages/Home/AllFeedbacks";
 import NotFoundPage from "../Components/NotFoundPage";
+import upcomingDetails from "../Pages/Home/upcomingDetails";
 
 
 export const routes = createBrowserRouter([
@@ -37,11 +38,14 @@ export const routes = createBrowserRouter([
             },
             {
                 path: 'camp-details/:campId',
-
                 Component: CampDetails,
                 // element: <PrivateRoute>
                 //     <CampDetails></CampDetails>
                 // </PrivateRoute>
+            },
+            {
+                path: 'upcommingdetails/:id',
+                Component: upcomingDetails
             },
             {
                 path :'all-feedback',

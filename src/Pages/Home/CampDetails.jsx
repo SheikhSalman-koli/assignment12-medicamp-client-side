@@ -28,7 +28,7 @@ const CampDetails = () => {
         queryKey: ['camp-details', campId],
         queryFn: async () => {
             const res = await axiosSecure.get(`/camp-details/${campId}`);
-            return res.data;
+            return res?.data;
         },
         enabled: !!campId,
     });

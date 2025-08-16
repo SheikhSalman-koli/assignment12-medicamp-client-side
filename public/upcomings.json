@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "343",
+    "campName": "Smile & Shine Dental Camp",
+    "fees": 180,
+    "datetime": "Next Week",
+    "location": "Banani, Dhaka",
+    "doctor": "Dr. Monir",
+    "participantCount": 6,
+    "description": "Promotes oral hygiene with dental checkups, cleaning sessions, and awareness on cavity prevention.",
+    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314198/dental_camp.jpg",
+    "created_by": "shahed@gmail.com"
+  },
+  {
+    "_id": "4353",
+    "campName": "Healthy Heart Checkup Camp",
+    "fees": 250,
+    "datetime": "Next Month",
+    "location": "Gulshan, Dhaka",
+    "doctor": "Dr. Ayesha Rahman",
+    "participantCount": 12,
+    "description": "Cardiac screening, ECG tests, and consultation for early detection of heart-related issues.",
+    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314200/heart_camp.jpg",
+    "created_by": "rahman@gmail.com"
+  },
+  {
+    "_id": "674",
+    "campName": "Eye Care & Vision Camp",
+    "fees": 150,
+    "datetime": "Coming Soon",
+    "location": "Chattogram Medical Hall",
+    "doctor": "Dr. Tanvir Ahmed",
+    "participantCount": 20,
+    "description": "Free eye checkups, vision tests, and awareness on preventing common eye problems.",
+    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314210/eye_camp.jpg",
+    "created_by": "nabila@gmail.com"
+  },
+  {
+    "_id": "345",
+    "campName": "Mother & Child Health Camp",
+    "fees": 200,
+    "datetime": "This Month",
+    "location": "Sylhet Town Hall",
+    "doctor": "Dr. Farhana Akter",
+    "participantCount": 18,
+    "description": "Focuses on maternal care, child nutrition, and pediatric consultations for healthier families.",
+    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314225/mother_child_camp.jpg",
+    "created_by": "admin@medicamp.com"
+  }
+]

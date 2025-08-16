@@ -3,8 +3,6 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
 const FollowupModal = ({ onClose }) => {
-
-
     const {
         register,
         handleSubmit,
@@ -18,7 +16,6 @@ const FollowupModal = ({ onClose }) => {
             title: "Follow-Up Submitted!",
             text: "Your follow-up request has been submitted successfully. Our team will get back to you soon.",
             showConfirmButton: true,
-            // timer: 1500
         }).then(()=>{
              onClose()
              reset();
