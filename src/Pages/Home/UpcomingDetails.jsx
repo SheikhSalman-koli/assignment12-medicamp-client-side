@@ -7,29 +7,41 @@ const upcomingDetails = () => {
     console.log(id);
 
     const [camp, setCamp] = useState({})
+
     useEffect(()=>{
-        fetch(`upcomings.json/${id}`)
+        fetch(`/upcomings.json`)
         .then(res=> res.json())
-        .then(data=> setCamp(data))
-    })
+        .then(data=> {
+            const singleCamp = data?.find(item => item._id === id)
+            setCamp(singleCamp)
+        })
+    },[id])
+
+//       useEffect(() => {
+//     fetch("/upcomings.json") // 👈 just fetch the JSON file
+//       .then(res => res.json())
+//       .then(data => {
+//         const singleCamp = data.find(c => c._id === id); // 👈 find by id
+//         setCamp(singleCamp);
+//       });
+//   }, [id]);
 
     console.log(camp);
 
     return (
         <div className="max-w-4xl  mx-auto px-4 py-10 pt-24">
             <img
-                // src={camp?.photo}
+                src={camp?.photo}
                 alt={camp?.campName}
-                className="w-full h-64 object-cover rounded-xl mb-6 shadow"
+                className="w-full h-full object-contain rounded-xl mb-6 shadow"
             />
             <h2 className="text-3xl font-bold mb-3 text-indigo-700">{camp?.campName}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <p><span className="font-semibold">Camp Fees:</span> ${camp?.fees}</p>
-                <p><span className="font-semibold">Date & Time:</span>{camp?.datetime}</p>
+                <p><span className="font-semibold">Registration Starts :</span>{camp?.datetime}</p>
                 <p><span className="font-semibold">Location:</span> {camp?.location}</p>
                 <p><span className="font-semibold">Healthcare Professional:</span> {camp?.doctor}</p>
-                <p><span className="font-semibold">Participants:</span> {camp?.participantCount}</p>
             </div>
 
             <div className="mb-8">

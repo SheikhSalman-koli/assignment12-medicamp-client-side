@@ -8,7 +8,7 @@
     "doctor": "Dr. Monir",
     "participantCount": 6,
     "description": "Promotes oral hygiene with dental checkups, cleaning sessions, and awareness on cavity prevention.",
-    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314198/dental_camp.jpg",
+    "photo": "https://i.ibb.co.com/6Jc7cjGm/dental-shine.jpg",
     "created_by": "shahed@gmail.com"
   },
   {
@@ -18,9 +18,9 @@
     "datetime": "Next Month",
     "location": "Gulshan, Dhaka",
     "doctor": "Dr. Ayesha Rahman",
-    "participantCount": 12,
+    
     "description": "Cardiac screening, ECG tests, and consultation for early detection of heart-related issues.",
-    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314200/heart_camp.jpg",
+    "photo": "https://i.ibb.co.com/tM7gw8fK/helthy-heart.jpg",
     "created_by": "rahman@gmail.com"
   },
   {
@@ -32,19 +32,19 @@
     "doctor": "Dr. Tanvir Ahmed",
     "participantCount": 20,
     "description": "Free eye checkups, vision tests, and awareness on preventing common eye problems.",
-    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314210/eye_camp.jpg",
+    "photo": "https://i.ibb.co.com/39t4sfCf/eye-camp.jpg",
     "created_by": "nabila@gmail.com"
   },
   {
     "_id": "345",
     "campName": "Mother & Child Health Camp",
     "fees": 200,
-    "datetime": "This Month",
+    "datetime": "Next Week",
     "location": "Sylhet Town Hall",
     "doctor": "Dr. Farhana Akter",
     "participantCount": 18,
     "description": "Focuses on maternal care, child nutrition, and pediatric consultations for healthier families.",
-    "photo": "https://res.cloudinary.com/demo/image/upload/v1712314225/mother_child_camp.jpg",
+    "photo": "https://i.ibb.co.com/LXs5tggc/mother-child.jpg",
     "created_by": "admin@medicamp.com"
   }
 ]

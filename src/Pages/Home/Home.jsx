@@ -9,6 +9,7 @@ import HomeActionSection from './DedicatedSection/ActionSection';
 import AboutSection from './AboutSection';
 import HowItWorks from './HowItWorks';
 import Upcoming from './Upcoming';
+import Sponsers from './Sponsers';
 
 const Home = () => {
 
@@ -21,6 +22,7 @@ const Home = () => {
             <AboutSection></AboutSection>
             <HowItWorks></HowItWorks>
             <Upcoming></Upcoming>
+            <Sponsers></Sponsers>
         </div>
     );
 };

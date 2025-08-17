@@ -6,12 +6,12 @@ const Upcoming = () => {
     const [camps, setCamp] = useState([])
 
     useEffect(()=>{
-        fetch('upcomings.json')
+        fetch('/upcomings.json')
         .then(res=>res.json())
         .then(data=> setCamp(data))
     },[])
 
-    // console.log(camps);
+    console.log(camps);
 
 
     return (

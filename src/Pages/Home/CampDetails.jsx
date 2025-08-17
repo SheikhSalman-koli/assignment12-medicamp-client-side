@@ -92,7 +92,7 @@ const CampDetails = () => {
             <img
                 src={camp.photo}
                 alt={camp.campName}
-                className="w-full h-64 object-cover rounded-xl mb-6 shadow"
+                className="w-full h-auto object-cover rounded-xl mb-6 shadow"
             />
             <h2 className="text-3xl font-bold mb-3 text-indigo-700">{camp.campName}</h2>
 
