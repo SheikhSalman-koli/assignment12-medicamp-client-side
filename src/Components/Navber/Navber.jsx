@@ -43,14 +43,24 @@ const Navber = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             {links}
-                            {user && <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>}
+                            {user && 
+                            <>
+                            <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>
+                           <NavLink to='/report' className='font-bold'>Report</NavLink>
+                            </>
+                            }
                         </ul>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {links}
-                        {user && <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>}
+                        {user && 
+                        <>
+                        <NavLink to='/dashboard' className='font-bold'>Dashboard</NavLink>
+                         <NavLink to='/report' className='font-bold'>Report</NavLink>
+                        </>
+                        }
                     </ul>
                 </div>
 
@@ -76,8 +86,8 @@ const Navber = () => {
                         </div>
                     </> :
                         <>
-                            <Link to='/signin' className='font-bold mr-0 btn'>Sign In</Link>
-                            <Link to='/signup' className='font-bold mr-0 btn'>Sign Up</Link>
+                            <Link to='/signin' className='font-bold mr-0 btn btn-outline'>Sign In</Link>
+                            <Link to='/signup' className='font-bold mr-0 btn btn-outline'>Sign Up</Link>
                         </>
                     }
                 </div>

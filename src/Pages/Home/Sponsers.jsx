@@ -1,8 +1,8 @@
 import React from 'react';
-import square from '../../../public/assets/square-denim.jpg'
-import brack from '../../../public/assets/brack.jpeg'
-import incepta from '../../../public/assets/incepta.jpg'
-import bdrcs from '../../../public/assets/bdrcs.png'
+import square from '../../assets/square-denim.jpg'
+import brack from '../../assets/brack.jpeg'
+import incepta from '../../assets/incepta.jpg'
+import bdrcs from '../../assets/bdrcs.png'
 
 const Sponsers = () => {
     return (
@@ -14,10 +14,10 @@ const Sponsers = () => {
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-8">
                    
-                    <img src={square} alt="square" className="w-22 h-12 border"  title="Square Hospital" />
-                    <img src={brack} alt="brack" className="w-22 h-12 border" title="BRAC NGO" />
-                    <img src={incepta} alt="incepta" className="w-22 h-12 border" title="Incepta Pharmaceuticals Ltd." />
-                    <img src={bdrcs} alt="bdrcs" className="w-22 h-12 border" title="Bangladesh Red Crescent Society" />
+                    <img src={square} alt="square" className="w-22 h-12 border hover:shadow-2xl"  title="Square Hospital" />
+                    <img src={brack} alt="brack" className="w-22 h-12 border hover:shadow-2xl" title="BRAC NGO" />
+                    <img src={incepta} alt="incepta" className="w-22 h-12 border hover:shadow-2xl" title="Incepta Pharmaceuticals Ltd." />
+                    <img src={bdrcs} alt="bdrcs" className="w-22 h-12 border hover:shadow-2xl" title="Bangladesh Red Crescent Society" />
                 </div>
             </div>
         </section>

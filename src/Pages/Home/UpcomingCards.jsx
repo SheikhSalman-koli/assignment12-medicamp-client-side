@@ -17,7 +17,7 @@ export default function UpcomingCards({camp}) {
                 <p>{camp?.description?.split(" ").slice(0, 8).join(" ") + "..."}</p>
                 <div className="card-actions justify-end">
                     <Link to={`/upcommingdetails/${camp?._id}`}>
-                        <button className="mt-2 px-4 py-1 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition">
+                        <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
                             View Details
                         </button>
                     </Link>

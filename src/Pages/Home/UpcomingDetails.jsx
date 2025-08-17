@@ -39,7 +39,7 @@ const upcomingDetails = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <p><span className="font-semibold">Camp Fees:</span> ${camp?.fees}</p>
-                <p><span className="font-semibold">Registration Starts :</span>{camp?.datetime}</p>
+                <p><span className="font-semibold">Registration Starts: </span>{camp?.datetime}</p>
                 <p><span className="font-semibold">Location:</span> {camp?.location}</p>
                 <p><span className="font-semibold">Healthcare Professional:</span> {camp?.doctor}</p>
             </div>

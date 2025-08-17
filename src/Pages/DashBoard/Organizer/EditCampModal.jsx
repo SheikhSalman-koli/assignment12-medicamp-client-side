@@ -15,14 +15,14 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
         reset
     } = useForm({
         defaultValues: {
-            campName: camp.campName,
-            // image: camp.photo,
-            fees: camp.fees,
-            dateTime: new Date(camp.dateTime).toISOString().slice(0, 16),
-            location: camp.location,
-            doctor: camp.doctor,
-            participantCount: camp.participantCount || 0,
-            description: camp.description,
+            campName: camp?.campName,
+            image: camp?.photo,
+            fees: camp?.fees,
+            dateTime: new Date(camp?.dateTime).toISOString().slice(0, 16),
+            location: camp?.location,
+            doctor: camp?.doctor,
+            participantCount: camp?.participantCount || 0,
+            description: camp?.description,
         },
     });
 
@@ -31,7 +31,7 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
         isPending
     } = useMutation({
         mutationFn: async (updated) => {
-            const res = await axiosSecure.patch(`/camps/${camp._id}`, updated);
+            const res = await axiosSecure.patch(`/camps/${camp?._id}`, updated);
             return res.data;
         },
         onSuccess: () => {
@@ -42,15 +42,15 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
 
     const onSubmit = async (data) => {
         setLoad(true)
-        let photo
+        // let photo
         const updatedDoc = {
             ...data
         }
-        const image = data?.photo?.[0]
-        if (image) {
-            photo = await uploadPhoto(image)
-            updatedDoc.photo = photo
-        }
+        // const image = data?.photo?.[0]
+        // if (image) {
+        //     photo = await uploadPhoto(image)
+        //     updatedDoc.photo = photo
+        // }
         // console.log(updatedDoc);
         await mutateAsync(updatedDoc);
         setLoad(false)
@@ -77,11 +77,18 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
 
                     {/* Image */}
                     <div>
-                        <label className="font-medium">Upload image ( low file size )</label>
+                        <label className="font-medium">Image URL</label>
                         <input
+                            type="text"
+                            // accept="image/*"
+                            // defaultValue={camp?.photo}
+                            {...register('image')} className="w-full p-2 border rounded" />
+
+                        {/* <input
                             type="file"
                             accept="image/*"
-                            {...register('photo')} className="w-full p-2 border rounded" />
+                            defaultValue={camp?.photo}
+                            {...register('photo')} className="w-full p-2 border rounded" /> */}
                     </div>
 
                     {/* Camp Fees */}

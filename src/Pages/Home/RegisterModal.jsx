@@ -128,6 +128,16 @@ const RegisterModal = ({ camp, onClose, onSubmit }) => {
             />
           </div>
 
+          <div>
+            <label className="label">Address</label>
+            <input
+              type="text"
+              placeholder="Address"
+              className="input input-bordered w-full"
+              {...register('Address', { required: true })}
+            />
+          </div>
+
           {/* Actions */}
           <div className="col-span-1 md:col-span-2 flex justify-between gap-3 mt-4">
                  <button
@@ -140,7 +150,7 @@ const RegisterModal = ({ camp, onClose, onSubmit }) => {
 
              <button
               type="submit"
-              className="btn btn-primary"
+              className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             >
               Submit
             </button>

@@ -41,7 +41,7 @@ export default function AboutSection() {
               tomorrow.
             </p> */}
             <p className="text-gray-600 leading-relaxed mb-6">MediCamp is a professional medical camp designed to bring quality healthcare directly to communities. Our mission is to provide comprehensive medical checkups, specialist consultations, and health awareness sessions in a convenient and organized manner.</p>
-            <button className="px-6 py-3 bg-blue-600 text-white font-medium rounded-xl shadow hover:bg-blue-700 transition"
+            <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             onClick={handleModal}
             >
               Learn More

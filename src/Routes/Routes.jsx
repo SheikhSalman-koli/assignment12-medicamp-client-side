@@ -21,6 +21,8 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import AllFeedbacks from "../Pages/Home/AllFeedbacks";
 import NotFoundPage from "../Components/NotFoundPage";
 import upcomingDetails from "../Pages/Home/upcomingDetails";
+import ReportPage from "../Pages/Home/reportissue/ReportPage";
+import OrganizerStats from "../Pages/DashBoard/Organizer/OrganizerStats";
 
 
 export const routes = createBrowserRouter([
@@ -50,6 +52,10 @@ export const routes = createBrowserRouter([
             {
                 path :'all-feedback',
                 Component: AllFeedbacks
+            },
+            {
+                path: 'report',
+                Component: ReportPage
             }
         ]
     },
@@ -99,6 +105,10 @@ export const routes = createBrowserRouter([
                     <ManageRegCamps></ManageRegCamps>
                 </OrganizerRoute>,
                 loader:() => fetch(`${import.meta.env.VITE_BASE_URL}/count`)
+            },
+            {
+                path: 'stats',
+                Component: OrganizerStats
             },
 
             {

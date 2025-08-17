@@ -1,10 +1,11 @@
 import React from 'react';
+import ParticipantNav from './ParticipantNav';
+import Analytics from './Analytics';
 
 const ParticipantHome = () => {
     return (
         <div>
-            ParticipantHome
-ParticipantHome
+            <Analytics></Analytics>
         </div>
     );
 };

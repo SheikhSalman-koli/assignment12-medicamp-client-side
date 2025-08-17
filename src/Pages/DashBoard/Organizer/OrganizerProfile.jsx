@@ -47,11 +47,11 @@ const OrganizerProfile = () => {
     });
 
     const onSubmit = async (data) => {
-        const image = data?.photo?.[0]
-        const photo = await uploadPhoto(image)
+        // const image = data?.photo?.[0]
+        // const photo = await uploadPhoto(image)
         const updatedData = {
             ...data,
-            photo
+            // photo
         }
         // console.log(updatedData);
         await updateProfile(updatedData);
@@ -75,23 +75,27 @@ const OrganizerProfile = () => {
                 <h2 className="text-2xl font-bold mb-6 text-center">Organizer Profile</h2>
 
                 {!editing ? (
-                    <div className="flex flex-col items-center gap-4 text-center">
-                        <img
-                            src={organizer?.photo}
-                            alt="Organizer?"
-                            className="w-28 h-28 rounded-full object-cover border"
-                        />
-                        <div className="w-full sm:w-2/3">
+                    <div className="flex flex-col md:flex-row items-center gap-4 text-center">
+                        <div className='flex-1 flex justify-center'>
+                            <div>
+                                <img
+                                    src={organizer?.photo}
+                                    alt="Organizer?"
+                                    className="w-28 md:w-60 h-28 md:h-60 rounded-full object-cover border"
+                                />
+                            </div>
+                        </div>
+                        <div className="flex-1">
                             <p><strong>Name:</strong> {organizer?.name}</p>
                             <p><strong>Email:</strong> {organizer?.email}</p>
                             <p><strong>Contact:</strong> {organizer?.contact || 'N/A'}</p>
+                            <button
+                                onClick={() => setEditing(true)}
+                                className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                            >
+                                Update Profile
+                            </button>
                         </div>
-                        <button
-                            onClick={() => setEditing(true)}
-                            className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
-                        >
-                            Update Profile
-                        </button>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -109,11 +113,11 @@ const OrganizerProfile = () => {
                         {/* Photo URL */}
                         <div>
                             <label className="label">
-                                <span className="label-text">Upload Photo</span>
+                                <span className="label-text">Photo URL</span>
                             </label>
                             <input
-                                type="file"
-                                accept="image/*"
+                                type="text"
+                                // accept="image/*"
                                 {...register('photo', {
                                     required: 'Photo URL is required',
                                 })}
@@ -149,7 +153,7 @@ const OrganizerProfile = () => {
                             <button
                                 type="button"
                                 onClick={() => setEditing(false)}
-                                className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400 transition"
+                                className="btn btn-outline"
                             >
                                 Cancel
                             </button>

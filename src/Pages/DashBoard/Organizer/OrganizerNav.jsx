@@ -1,5 +1,5 @@
 
-import { FaUserCog, FaPlusCircle, FaTasks, FaClipboardList, FaHome } from 'react-icons/fa';
+import { FaUserCog, FaPlusCircle, FaTasks, FaClipboardList, FaHome, FaChartPie } from 'react-icons/fa';
 import { NavLink } from 'react-router';
 
 const OrganizerNav = () => {
@@ -14,6 +14,9 @@ const OrganizerNav = () => {
                 <FaHome /> Home
             </NavLink> */}
 
+            <NavLink to="/dashboard/stats" className={navLinkStyle}>
+                <FaChartPie /> Organizer Stats
+            </NavLink>
             <NavLink to="/dashboard/organizer-profile" className={navLinkStyle}>
                 <FaUserCog /> Organizer Profile
             </NavLink>
@@ -27,7 +30,7 @@ const OrganizerNav = () => {
             </NavLink>
 
             <NavLink to="/dashboard/manage-registered" className={navLinkStyle}>
-                <FaClipboardList /> Manage Registered Camps
+                <FaClipboardList /> Manage Registrations
             </NavLink>
         </nav>
     );
