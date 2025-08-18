@@ -69,7 +69,7 @@ const Signup = () => {
     return (
         <div className="min-h-screen bg-gradient-to-tr from-pink-100 via-white  py-6 to-blue-100 flex items-center justify-center">
             <div className="bg-white shadow-2xl rounded-3xl p-8 sm:p-10 w-full max-w-lg">
-                <h2 className="text-3xl font-bold text-center text-primary mb-6">Create Account</h2>
+                <h2 className="text-3xl text-[#F97A00] font-bold  text-center mb-6">Create Account</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     {/* Name */}
@@ -158,7 +158,7 @@ const Signup = () => {
                     {/* Submit */}
                     <button 
                     type="submit" 
-                    className="btn btn-primary w-full">
+                    className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full">
                         {loading ? <span className="loading loading-spinner text-neutral"></span> : 'Register'}
                     </button>
                 </form>
@@ -166,7 +166,7 @@ const Signup = () => {
                 {/* Footer */}
                 <p className="text-center text-sm text-gray-500 mt-6">
                     Already have an account?{' '}
-                    <Link to="/signin" className="link link-primary font-medium">
+                    <Link to="/signin" className="link text-blue-600 font-medium">
                         Login
                     </Link>
                 </p>

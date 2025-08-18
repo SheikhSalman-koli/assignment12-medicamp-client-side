@@ -4,7 +4,8 @@ import { Link } from 'react-router';
 const AvailableCard = ({ camp }) => {
     return (
         <div
-            className="card bg-base-100 shadow-md rounded-2xl overflow-hidden p-4 space-y-3"
+           data-aos="fade-up"
+            className="card bg-base-100 border-2 border-base-300 rounded-2xl overflow-hidden p-4 space-y-3"
         >
             <figure>
                 <img className='w-full h-48 object-cover rounded-xl border-1 border-gray-300'

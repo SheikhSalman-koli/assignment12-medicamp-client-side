@@ -97,7 +97,7 @@ const RegisteredCamps = () => {
 
     return (
         <div className="p-6 pt-24 lg:pt-6">
-            <h2 className="text-2xl font-bold mb-4">Your Registered Camps</h2>
+            <h2 className="text-3xl text-[#F97A00] font-bold text-center mb-4">Your Registered Camps</h2>
             <AllTableSearch
                 value={searchInput}
                 onChange={setSearchInput}
@@ -146,7 +146,7 @@ const RegisteredCamps = () => {
                                     {/* Pay Button (only if unpaid) */}
                                     {camp?.payment_status !== 'paid' &&
                                         <button
-                                            className="btn btn-xs btn-primary"
+                                            className="btn btn-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                                             onClick={() => handlePayment(camp?._id)}
                                         >
                                             Pay
@@ -157,7 +157,7 @@ const RegisteredCamps = () => {
                                     {camp?.payment_status === 'paid' &&
                                         <button
                                             disabled={camp?.payment_status !== 'paid'}
-                                            className="btn btn-xs btn-info"
+                                            className="btn btn-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                                             onClick={() => setIsopen(camp)
                                             }
                                         >
@@ -168,7 +168,7 @@ const RegisteredCamps = () => {
                                     {/* Cancel Button */}
                                     <button
                                         disabled={camp?.payment_status === 'paid'}
-                                        className={`btn btn-xs btn-error`}
+                                        className={`btn btn-xs bg-red-500 text-white rounded hover:bg-red-600 transition`}
                                         onClick={() => handleCancel(camp?._id, camp?.campId)}
                                     >
                                         Cancel

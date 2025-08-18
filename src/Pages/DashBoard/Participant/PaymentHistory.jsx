@@ -52,7 +52,7 @@ const PaymentHistory = () => {
 
   return (
     <div className="p-6 pt-24 lg:pt-6">
-      <h2 className="text-2xl font-bold mb-4">Payment History</h2>
+      <h2 className="text-3xl text-[#F97A00] font-bold text-center mb-4">Payment History</h2>
       <AllTableSearch
         value={searchInput}
         onChange={setSearchInput}

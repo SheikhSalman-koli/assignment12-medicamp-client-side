@@ -36,7 +36,7 @@ export default function OrganizerStats() {
 
   return (
     <div className="p-6 pt-24 lg:pt-6">
-      <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"><FaChartBar className="text-indigo-600 text-2xl" /> Organizer Stats</h2>
+      <h2 className="text-3xl text-[#F97A00] font-bold  mb-4 flex items-center justify-center gap-3"><FaChartBar /> Organizer Stats</h2>
 
       <StatsCards
         stats={stats}

@@ -17,8 +17,9 @@ const ReportPage = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto py-10 px-4 pt-24">
-      <h1 className="text-2xl font-bold mb-6 text-center">Report an Issue</h1>
+    <div className="pt-24">
+    <div className="max-w-11/12 lg:max-w-lg mx-auto py-10 bg-base-100 px-4 rounded-2xl">
+      <h1 className="text-3xl text-[#F97A00] font-bold mb-6 text-center">Report an Issue</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         {/* Camp Name */}
@@ -38,9 +39,9 @@ const ReportPage = () => {
           <label className="block font-medium mb-1">Issue Category</label>
           <select
             {...register("category", { required: "Please select an issue category" })}
-            className="w-full border rounded-lg px-3 py-2"
+            className="w-full border bg-base-100 rounded-lg px-3 py-2"
           >
-            <option value="">-- Select Issue --</option>
+            <option value="">Select Issue</option>
             <option value="doctor">Doctor behavior</option>
             <option value="location">Location problem</option>
             <option value="fees">Fees issue</option>
@@ -69,6 +70,7 @@ const ReportPage = () => {
           Submit Report
         </button>
       </form>
+    </div>
     </div>
   );
 };

@@ -6,10 +6,10 @@ import bdrcs from '../../assets/bdrcs.png'
 
 const Sponsers = () => {
     return (
-        <section className="">
+        <section data-aos="fade-up" className="">
             <div className="max-w-6xl mx-auto text-center">
-                <h2 className="text-3xl font-bold mb-6">Our Partners</h2>
-                <p className="text-gray-600 mb-10">
+                <h2 className="text-3xl text-[#F97A00] font-bold mb-6">Our Partners</h2>
+                <p className=" mb-10">
                     We are grateful to our partners and sponsors who make MediCamp possible.
                 </p>
                 <div className="flex flex-wrap justify-center items-center gap-8">

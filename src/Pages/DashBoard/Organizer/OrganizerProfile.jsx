@@ -74,7 +74,7 @@ const OrganizerProfile = () => {
     return (
         <div className="w-full px-4 md:px-8 py-6 mt-8 lg:mt-8 pt-24 lg:pt-6">
             <div className="w-full max-w-4xl mx-auto bg-white border-1 border-blue-600 rounded-lg p-6 sm:p-8">
-                <h2 className="text-2xl font-bold mb-6 text-center">Organizer Profile</h2>
+                <h2 className="text-2xl font-semibold text-[#F97A00] mb-6 text-center">Organizer Profile</h2>
 
                 {!editing ? (
                     <div className="flex flex-col md:flex-row items-center gap-4 text-center">
@@ -165,7 +165,7 @@ const OrganizerProfile = () => {
                             <button
                                 type="submit"
                                 disabled={isPending}
-                                className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+                                className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
                             >
                                 {isPending ? 'Updating...' : 'Save Change'}
 

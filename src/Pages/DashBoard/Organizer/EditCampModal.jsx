@@ -152,7 +152,7 @@ const EditCampModal = ({ camp, onClose, refetch }) => {
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 border rounded text-gray-600"
+                            className="btn btn-outline"
                         >
                             Cancel
                         </button>

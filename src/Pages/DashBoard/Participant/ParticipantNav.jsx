@@ -9,9 +9,9 @@ import {
 import { NavLink } from 'react-router';
 
 const ParticipantNav = () => {
-    const navLinkStyle = ({ isActive }) =>
+     const navLinkStyle = ({ isActive }) =>
         isActive
-            ? 'flex items-center gap-2 p-2 rounded-lg bg-green-100 text-green-700 font-semibold'
+            ? 'flex items-center gap-2 p-2 rounded-lg bg-blue-100 text-blue-600 font-semibold'
             : 'flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100';
 
     return (

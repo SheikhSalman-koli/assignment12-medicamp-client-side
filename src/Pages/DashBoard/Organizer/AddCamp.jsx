@@ -52,7 +52,7 @@ const AddCamp = () => {
 
   return (
     <div className="max-w-11/12 mx-auto p-2 lg:p-6 mt-24 lg:mt-8 bg-white rounded-lg border-1 border-blue-600 my-8">
-      <h2 className="text-2xl font-bold mb-6 text-center">Add A Camp</h2>
+      <h2 className="text-3xl text-[#F97A00] font-bold  mb-6 text-center">Add A Camp</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Camp Name */}
         <div>

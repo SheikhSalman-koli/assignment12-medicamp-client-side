@@ -46,7 +46,7 @@ const upcomingDetails = () => {
 
             <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-2">Description</h3>
-                <p className="text-gray-700">{camp?.description}</p>
+                <p className="">{camp?.description}</p>
             </div>  
         </div>
     );

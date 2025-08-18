@@ -46,7 +46,7 @@ const Signin = () => {
     return (
         <div className="min-h-screen bg-gradient-to-tr from-blue-100 via-white to-pink-100 flex items-center justify-center">
             <div className="bg-white shadow-xl rounded-3xl p-8 sm:p-10 w-full max-w-md">
-                <h2 className="text-3xl font-bold text-center text-primary mb-6">Welcome Back</h2>
+                <h2 className="text-3xl text-[#F97A00] font-bold  text-center mb-6">Welcome Back</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                     {/* Email */}
@@ -101,15 +101,15 @@ const Signin = () => {
                     </div>
 
                     {/* Submit */}
-                    <button type="submit" className="btn btn-primary w-full">
-                        {loading?(<span className="loading loading-spinner loading-lg"></span>) : 'login'}
+                    <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition w-full">
+                        {loading?(<span className="loading loading-spinner loading-lg"></span>) : 'Login'}
                     </button>
                 </form>
 
                 {/* Footer */}
                 <p className="text-center text-sm text-gray-500 mt-6">
                     Don’t have an account?{' '}
-                    <Link to="/signup" className="link link-primary font-medium">
+                    <Link to="/signup" className="link text-blue-600 font-medium">
                         Register
                     </Link>
                 </p>

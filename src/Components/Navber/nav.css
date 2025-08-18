@@ -1,10 +1,13 @@
 a {
+   margin-left: 14px;
     font-size: 15px;
-    /* font-weight: 700; */
-    margin-left: 14px;
+    font-weight:600;
 }
 
 a.active {
-    text-decoration: underline;
-    color: blue;
+    /* background-color: rgb(229, 230, 230);  */
+     color: #2C7BE5;
+    background-color: aliceblue;
+    padding: 2px 4px;
+    border-radius: 4px;
 }

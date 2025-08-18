@@ -24,7 +24,7 @@ const BeVolunteer = ({ onClose }) => {
 
     return (
         <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex justify-center items-center overflow-y-auto p-4 z-50">
-            <div className="max-w-xl mx-auto p-6 bg-white shadow rounded-lg mt-10">
+            <div className="max-w-xl mx-auto p-6 bg-base-100 border-2 border-gray-700  rounded-lg mt-10">
                 <div
                     className="flex justify-between">
                     <h2 className="text-2xl font-semibold mb-4 text-center text-green-700">Be A Volunteer</h2>
@@ -83,7 +83,7 @@ const BeVolunteer = ({ onClose }) => {
                         {errors.role && <p className="text-red-500 text-sm">{errors.role.message}</p>}
                     </div>
 
-                    <button type="submit" className="btn btn-success w-full">Submit</button>
+                    <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition  w-full ">Submit</button>
                 </form>
             </div>
         </div>

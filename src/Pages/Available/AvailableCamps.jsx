@@ -39,7 +39,7 @@ const AvailableCamps = () => {
 
   return (
     <section className="py-12 pt-24 max-w-11/12 mx-auto ">
-      <h2 className="text-3xl font-bold text-center mb-8 text-green-700">All Available Camps</h2>
+      <h2 className="text-3xl text-[#F97A00] font-bold  text-center mb-8">All Camps</h2>
 
       <div className='flex justify-between flex-col md:flex-row gap-3 mb-4'>
         <label className="input">

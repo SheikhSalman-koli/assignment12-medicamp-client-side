@@ -3,5 +3,6 @@
 }
 
 .pagination .selected{
-   background-color:#FF9900;
+    color: white;
+   background-color: rgb(37, 99, 235);
 }

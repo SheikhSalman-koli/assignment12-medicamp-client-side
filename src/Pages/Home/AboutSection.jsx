@@ -11,7 +11,7 @@ export default function AboutSection() {
 
 
   return (
-    <section className="bg-gray-50 py-16" id="about">
+    <section data-aos="fade-up" className="bg-base-100 py-16 rounded-2xl" id="about">
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Left: Image */}
@@ -25,8 +25,8 @@ export default function AboutSection() {
 
           {/* Right: Text */}
           <div>
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
-              About Us
+            <h2 className="text-3xl text-[#F97A00] font-bold  mb-4">
+              About MediCamp
             </h2>
             {/* <p className="text-gray-600 leading-relaxed mb-6">
               We are a community-driven platform dedicated to making a positive
@@ -40,7 +40,7 @@ export default function AboutSection() {
               counts towards a big change. Together, we can create a better
               tomorrow.
             </p> */}
-            <p className="text-gray-600 leading-relaxed mb-6">MediCamp is a professional medical camp designed to bring quality healthcare directly to communities. Our mission is to provide comprehensive medical checkups, specialist consultations, and health awareness sessions in a convenient and organized manner.</p>
+            <p className="text-gray-500 leading-relaxed mb-6">MediCamp is a professional medical camp designed to bring quality healthcare directly to communities. Our mission is to provide comprehensive medical checkups, specialist consultations, and health awareness sessions in a convenient and organized manner.</p>
             <button className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
             onClick={handleModal}
             >

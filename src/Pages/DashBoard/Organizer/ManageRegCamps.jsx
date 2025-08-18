@@ -100,7 +100,7 @@ const ManageRegCamps = () => {
 
     return (
         <div className="p-4 pt-24 lg:pt-6">
-            <h2 className="text-2xl font-bold mb-4 text-center">Manage Registrations</h2>
+            <h2 className="text-3xl text-[#F97A00] font-bold  mb-4 text-center">Manage Registrations</h2>
             {/* reusable search input */}
             <AllTableSearch
                 // searchValue={input}
@@ -125,7 +125,7 @@ const ManageRegCamps = () => {
                     </thead>
                     <tbody>
                         {registeredCamps.map((reg, index) => (
-                            <tr key={reg._id} className="text-center">
+                            <tr key={reg._id} className="text-center hover:bg-gray-50">
                                 <td className="border p-2">{index + 1}</td>
                                 <td className="border p-2">{reg.campName}</td>
                                 <td className="border p-2">${reg.campFees}</td>

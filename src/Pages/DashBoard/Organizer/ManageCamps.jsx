@@ -91,8 +91,8 @@ const ManageCamps = () => {
 
 
     return (
-        <div className="w-full p-4 md:p-8 pt-24 lg:pt-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">Manage Your Camps</h2>
+        <div className="w-full p-4 pt-24 lg:pt-8">
+            <h2 className="text-3xl text-[#F97A00] font-bold  mb-6 text-center">Manage Camps</h2>
             <AllTableSearch
                 value={searchInput}
                 onChange={setSearchInput}
@@ -100,8 +100,8 @@ const ManageCamps = () => {
                 placeholder='search'
             ></AllTableSearch>
             <div className="overflow-x-auto">
-                <table className="min-w-full bg-white border rounded shadow text-sm md:text-base border-collapse">
-                    <thead className="bg-blue-600 text-white">
+                <table className="min-w-full border text-sm md:text-base">
+                    <thead className="bg-gray-100">
                         <tr>
                             <th className="p-2 border border-black text-left">#</th>
                             <th className="p-2 border border-black text-left">Camp Name</th>
@@ -113,7 +113,7 @@ const ManageCamps = () => {
                     </thead>
                     <tbody>
                         {camps.map((camp, index) => (
-                            <tr key={camp._id} className="border-b hover:bg-gray-100">
+                            <tr key={camp._id} className="border-b hover:bg-gray-50">
                                 <td className="p-2 border border-black">{index + 1}</td>
                                 <td className="p-2 border border-black">{camp?.campName}</td>
                                 <td className="p-2 border border-black">

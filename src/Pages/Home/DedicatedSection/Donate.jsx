@@ -29,7 +29,7 @@ export default function DonateForm({ onClose }) {
 
     return (
         <div className="fixed inset-0 bg-black/10 backdrop-blur-sm flex justify-center overflow-y-auto items-center p-4 z-50">
-            <div className="max-w-xl mx-auto p-6 bg-white shadow rounded-lg mt-10">
+            <div className="max-w-xl mx-auto p-6 bg-base-100 border-2 border-gray-700 rounded-lg mt-10">
                 <div
                     className="flex justify-between">
                     <h2 className="text-2xl font-semibold text-center  text-blue-700 mb-4">
@@ -118,7 +118,7 @@ export default function DonateForm({ onClose }) {
                         />
                     </div>
 
-                    <button className="btn btn-primary w-full">Donate</button>
+                    <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition w-full ">Donate</button>
                 </form>
             </div>
         </div>

@@ -61,7 +61,7 @@ const successStories = [
 const Banner = () => {
  
   return (
-    <div className="w-full max-h-[500px] overflow-hidden mt-8">
+    <div data-aos="fade-up" className="w-full max-h-[500px] overflow-hidden mt-8">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3500 }}

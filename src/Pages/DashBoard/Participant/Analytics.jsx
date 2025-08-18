@@ -25,8 +25,8 @@ const Analytics = () => {
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
-        <div className='h-screen p-4 md:p-15 pt-24 space-y-4'>
-            <h2 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaChartBar className="text-indigo-600 text-2xl" /> User Stats</h2>
+        <div className='h-screen p-4 lg:p-15 pt-24 space-y-4'>
+            <h2 className="text-3xl text-[#F97A00] font-bold mb-4 flex items-center gap-3"><FaChartBar className="text-3xl text-[#F97A00] font-bold " /> User Stats</h2>
 
         <div className='flex items-center overflow-x-auto mt-0 lg:mt-10 '>
             <ComposedChart width={730} height={250} data={ragistrations}>

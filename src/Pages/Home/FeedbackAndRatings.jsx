@@ -23,12 +23,12 @@ const FeedbackAndRatings = () => {
   if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
   return (
-    <div className="">
-      <h2 className="text-2xl font-semibold mb-4 text-center">Participant Feedback and Ratings</h2>
+    <div data-aos="fade-up" className="">
+      <h2 className="text-3xl text-[#F97A00] font-bold mb-4 text-center">Participant Feedback and Ratings</h2>
 
       <div className="grid gap-4 md:grid-cols-2">
         {feedbacks.map((fb) => (
-          <div key={fb._id} className="border p-4 rounded shadow bg-white">
+          <div key={fb._id} className="border-2 border-base-300 p-4 rounded hover:shadow-lg bg-base-100 transition">
             <h3 className="text-lg font-bold">Feedback For: {fb.feedbackFor}</h3>
             <div className='flex gap-2 items-center'>
                 <p className="text-sm text-gray-500">By: {fb.participantName}</p>
@@ -40,7 +40,7 @@ const FeedbackAndRatings = () => {
               emptySymbol={<FaRegStar className="text-yellow-400 text-xl" />}
               fullSymbol={<FaStar className="text-yellow-500 text-xl" />}
             />
-            <p className="text-gray-700"><span className='font-bold'>{fb.participantName}'s comment:</span> {fb.comment}</p>
+            <p className="text-gray-500"><span className='font-bold'>{fb.participantName}'s comment:</span> {fb.comment}</p>
           </div>
         ))}
       </div>
@@ -48,7 +48,7 @@ const FeedbackAndRatings = () => {
     <div className='flex justify-end'>
           <Link to='/all-feedback'>
         <button
-          className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded transition"
+          className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
         >
           See More Feedback
         </button>
