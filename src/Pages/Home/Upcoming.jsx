@@ -11,7 +11,7 @@ const Upcoming = () => {
         .then(data=> setCamp(data))
     },[])
 
-    console.log(camps);
+    // console.log(camps);
 
 
     return (

@@ -18,7 +18,7 @@ const DashBoardLayout = () => {
 
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
-                <div className="navbar bg-base-300 w-full lg:hidden">
+                <div className="navbar bg-base-300 w-full lg:hidden fixed z-50">
                     <div className="flex-none ">
                         <label htmlFor="my-drawer-3" aria-label="open sidebar" className="btn btn-square btn-ghost">
                             <svg

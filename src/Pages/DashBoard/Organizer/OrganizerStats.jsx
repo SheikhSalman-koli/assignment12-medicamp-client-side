@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import StatsCards from "./StatsCards";
@@ -15,33 +14,33 @@ export default function OrganizerStats() {
   const {
     data: stats,
     isLoading
-  } 
-  = useQuery({
-    queryKey: ['stats'],
-    queryFn: async()=>{
-        const res =await axiosSecure.get('/stats')
+  }
+    = useQuery({
+      queryKey: ['stats'],
+      queryFn: async () => {
+        const res = await axiosSecure.get('/stats')
         return res?.data
-    }
-  })
+      }
+    })
 
-  console.log(stats);
+  // console.log(stats);
 
   if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
   const data = [
-    { name: "Total Registrations", value: stats.totalRegistrations },
-    { name: "Paid Registrations", value: stats.paidRegistrations },
-    { name: "Confirmed Registrations", value: stats.confirmedRegistrations },
-    { name: "Total Camps", value: stats.totalCamps }
+    { name: "Total Registrations", value: stats?.totalRegistrations },
+    { name: "Paid Registrations", value: stats?.paidRegistrations },
+    { name: "Confirmed Registrations", value: stats?.confirmedRegistrations },
+    { name: "Total Camps", value: stats?.totalCamps }
   ];
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4 flex items-center gap-3"><FaChartBar className="text-indigo-600 text-2xl" /> Organizer Stats</h2>
+    <div className="p-6 pt-24 lg:pt-6">
+      <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-3"><FaChartBar className="text-indigo-600 text-2xl" /> Organizer Stats</h2>
 
-    <StatsCards 
-    stats={stats}
-    />
+      <StatsCards
+        stats={stats}
+      />
 
       <ResponsiveContainer width="100%" height={350}>
         <PieChart>

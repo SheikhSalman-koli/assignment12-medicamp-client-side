@@ -51,8 +51,8 @@ const PaymentHistory = () => {
   if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4 text-center">Payment History</h2>
+    <div className="p-6 pt-24 lg:pt-6">
+      <h2 className="text-2xl font-bold mb-4">Payment History</h2>
       <AllTableSearch
         value={searchInput}
         onChange={setSearchInput}

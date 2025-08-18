@@ -91,7 +91,7 @@ const ManageCamps = () => {
 
 
     return (
-        <div className="w-full p-4 md:p-8">
+        <div className="w-full p-4 md:p-8 pt-24 lg:pt-8">
             <h2 className="text-2xl font-bold mb-6 text-center">Manage Your Camps</h2>
             <AllTableSearch
                 value={searchInput}

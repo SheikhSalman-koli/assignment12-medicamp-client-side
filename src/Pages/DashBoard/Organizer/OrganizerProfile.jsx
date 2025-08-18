@@ -24,6 +24,8 @@ const OrganizerProfile = () => {
         enabled: !!user?.email,
     });
 
+    // console.log(organizer);
+
     const {
         register,
         handleSubmit,
@@ -70,7 +72,7 @@ const OrganizerProfile = () => {
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
-        <div className="w-full px-4 md:px-8 py-6 mt-8 lg:mt-8">
+        <div className="w-full px-4 md:px-8 py-6 mt-8 lg:mt-8 pt-24 lg:pt-6">
             <div className="w-full max-w-4xl mx-auto bg-white border-1 border-blue-600 rounded-lg p-6 sm:p-8">
                 <h2 className="text-2xl font-bold mb-6 text-center">Organizer Profile</h2>
 
@@ -89,6 +91,22 @@ const OrganizerProfile = () => {
                             <p><strong>Name:</strong> {organizer?.name}</p>
                             <p><strong>Email:</strong> {organizer?.email}</p>
                             <p><strong>Contact:</strong> {organizer?.contact || 'N/A'}</p>
+                            <p><strong>Role:</strong> {organizer?.role}</p>
+
+                            {/* Read-only system fields */}
+                            <p>
+                                <strong>Created At:</strong>{" "}
+                                {organizer?.created_at
+                                    ? new Date(organizer.created_at).toLocaleString()
+                                    : "N/A"}
+                            </p>
+                            <p>
+                                <strong>Last Login:</strong>{" "}
+                                {organizer?.last_log_at
+                                    ? new Date(organizer.last_log_at).toLocaleString()
+                                    : "N/A"}
+                            </p>
+
                             <button
                                 onClick={() => setEditing(true)}
                                 className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
@@ -96,7 +114,9 @@ const OrganizerProfile = () => {
                                 Update Profile
                             </button>
                         </div>
+
                     </div>
+
                 ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Name */}

@@ -96,7 +96,7 @@ const RegisteredCamps = () => {
     if (isLoading) return <LoaderSpinner></LoaderSpinner>
 
     return (
-        <div className="p-6">
+        <div className="p-6 pt-24 lg:pt-6">
             <h2 className="text-2xl font-bold mb-4">Your Registered Camps</h2>
             <AllTableSearch
                 value={searchInput}

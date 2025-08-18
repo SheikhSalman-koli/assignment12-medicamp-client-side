@@ -24,6 +24,8 @@ const UserProfile = () => {
         enabled: !!user?.email,
     });
 
+    // console.log(participant);
+
     const {
         register,
         handleSubmit,
@@ -71,7 +73,7 @@ const UserProfile = () => {
 
 
     return (
-        <div className="w-full px-4 md:px-8 py-6 mt-8">
+        <div className="w-full px-4 md:px-8 py-6 mt-8 pt-24  lg:pt-6">
             <div className="w-full max-w-4xl mx-auto bg-white border-1 border-blue-600 rounded-lg p-6 sm:p-8">
                 <h2 className="text-2xl font-bold mb-6 text-center">My Profile</h2>
 
@@ -93,10 +95,26 @@ const UserProfile = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex-1">
+                         <div className="flex-1">
                             <p><strong>Name:</strong> {participant?.name}</p>
                             <p><strong>Email:</strong> {participant?.email}</p>
                             <p><strong>Contact:</strong> {participant?.contact || 'N/A'}</p>
+                            <p><strong>Role:</strong> {participant?.role}</p>
+
+                            {/* Read-only system fields */}
+                            <p>
+                                <strong>Created At:</strong>{" "}
+                                {participant?.created_at
+                                    ? new Date(participant.created_at).toLocaleString()
+                                    : "N/A"}
+                            </p>
+                            <p>
+                                <strong>Last Login:</strong>{" "}
+                                {participant?.last_log_at
+                                    ? new Date(participant.last_log_at).toLocaleString()
+                                    : "N/A"}
+                            </p>
+
                             <button
                                 onClick={() => setEditing(true)}
                                 className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
