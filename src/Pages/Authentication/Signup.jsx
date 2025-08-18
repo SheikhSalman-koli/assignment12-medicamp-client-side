@@ -68,7 +68,7 @@ const Signup = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-tr from-pink-100 via-white  py-6 to-blue-100 flex items-center justify-center">
-            <div className="bg-white shadow-2xl rounded-3xl p-8 sm:p-10 w-full max-w-lg">
+            <div className="bg-white shadow-2xl rounded-3xl p-8 sm:p-10 w-full max-w-md">
                 <h2 className="text-3xl text-[#F97A00] font-bold  text-center mb-6">Create Account</h2>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
