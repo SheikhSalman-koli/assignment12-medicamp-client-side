@@ -34,7 +34,7 @@ export default function HomeActionSection() {
                         </div>
                         <button
                             onClick={() => setOpenVolunteer(true)}
-                            className="w-full px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                            className="w-full px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition  mt-6"
                         >
                             Be a Volunteer
                         </button>

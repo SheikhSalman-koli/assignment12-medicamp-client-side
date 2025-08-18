@@ -35,7 +35,7 @@ const upcomingDetails = () => {
                 alt={camp?.campName}
                 className="w-full h-full object-contain rounded-xl mb-6 shadow"
             />
-            <h2 className="text-3xl font-bold mb-3 text-indigo-700">{camp?.campName}</h2>
+            <h2 className="text-3xl text-[#F97A00] font-bold  mb-3">{camp?.campName}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <p><span className="font-semibold">Camp Fees:</span> ${camp?.fees}</p>
