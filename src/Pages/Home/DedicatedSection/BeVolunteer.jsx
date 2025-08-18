@@ -27,7 +27,7 @@ const BeVolunteer = ({ onClose }) => {
             <div className="max-w-xl mx-auto p-6 bg-base-100 border-2 border-gray-700  rounded-lg mt-10">
                 <div
                     className="flex justify-between">
-                    <h2 className="text-2xl font-semibold mb-4 text-center text-green-700">Be A Volunteer</h2>
+                    <h2 className="text-2xl font-semibold text-[#F97A00] mb-4 text-center">Be A Volunteer</h2>
                     <button
                         onClick={handleClose}
                         className="btn btn-sm text-[20px]">x</button>
@@ -83,7 +83,7 @@ const BeVolunteer = ({ onClose }) => {
                         {errors.role && <p className="text-red-500 text-sm">{errors.role.message}</p>}
                     </div>
 
-                    <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition  w-full ">Submit</button>
+                    <button type="submit" className="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition  w-full ">Submit</button>
                 </form>
             </div>
         </div>

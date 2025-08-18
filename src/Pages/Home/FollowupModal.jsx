@@ -24,10 +24,10 @@ const FollowupModal = ({ onClose }) => {
 
     return (
         <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-white rounded-xl w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto shadow-xl">
+            <div className="bg-base-300 border-2 border-base-300 rounded-xl w-full max-w-2xl p-6 max-h-[90vh] overflow-y-auto">
                 <div
                     className="flex justify-between">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-2xl md:text-3xl text-[#F97A00] font-bold  mb-4">
                         Follow-Up Form
                     </h2>
                     <button
@@ -37,7 +37,7 @@ const FollowupModal = ({ onClose }) => {
 
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    className="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-md"
+                    className="max-w-xl mx-auto bg-base-100 p-8 rounded-xl shadow-md"
                 >
                     <div className="mb-4">
                         <label className="block text-gray-700 font-medium mb-2">Name</label>

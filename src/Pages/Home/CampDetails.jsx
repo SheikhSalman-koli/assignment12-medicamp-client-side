@@ -94,7 +94,7 @@ const CampDetails = () => {
                 alt={camp.campName}
                 className="w-full h-auto object-cover rounded-xl mb-6 shadow"
             />
-            <h2 className="text-3xl font-bold mb-3 text-indigo-700">{camp.campName}</h2>
+            <h2 className="text-3xl text-[#F97A00] font-bold  mb-3">{camp.campName}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 <p><span className="font-semibold">Camp Fees:</span> ${camp.fees}</p>
@@ -106,7 +106,7 @@ const CampDetails = () => {
 
             <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-2">Description</h3>
-                <p className="text-gray-700">{camp.description}</p>
+                <p className="">{camp.description}</p>
             </div>
 
             {/* Join Camp Button */}
@@ -116,7 +116,7 @@ const CampDetails = () => {
                 ) : isRegistered ? (
                     <div className="space-y-2">
                         {campDate > today ? (
-                            <p className="text-yellow-600 font-semibold">
+                            <p className="font-semibold text-[#F97A00]">
                                 You have already joined this camp, you can follow-up after consultation
                             </p>
                         ) : (

@@ -32,7 +32,7 @@ export default function DonateForm({ onClose }) {
             <div className="max-w-xl mx-auto p-6 bg-base-100 border-2 border-gray-700 rounded-lg mt-10">
                 <div
                     className="flex justify-between">
-                    <h2 className="text-2xl font-semibold text-center  text-blue-700 mb-4">
+                    <h2 className="text-2xl font-semibold text-[#F97A00] text-center mb-4">
                         Make a Donation
                     </h2>
                     <button
