@@ -9,7 +9,7 @@ Medicamp is a secure, user-friendly platform designed to streamline the manageme
 
 Organizers can easily add, update, and delete camp events while participants can register seamlessly through integrated Stripe payment processing. The platform includes a personalized analytics dashboard providing real-time participant count tracking and detailed camp insights.
 
-Participants can submit feedback and ratings after registration, view comprehensive camp details, and review their payment history complete with transaction IDs. Secure payment processing is supported through Stripe and SSL Commerz, ensuring smooth transactions for both local and international users. An admin confirmation system ensures registration statuses are accurately managed.
+Participants can submit feedback and ratings after registration, view comprehensive camp details, and review their payment history complete with transaction IDs. Secure payment processing is supported through Stripe , ensuring smooth transactions for both local and international users. An admin confirmation system ensures registration statuses are accurately managed.
 
 Built with React, TailwindCSS, and DaisyUI, Medicamp features a responsive, mobile-first interface that delivers a smooth and engaging user experience across all devices.
 
