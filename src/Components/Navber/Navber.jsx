@@ -6,10 +6,12 @@ import UseAuth from '../../Hooks/useAuth';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 import Swal from 'sweetalert2';
 import { GiHamburgerMenu } from "react-icons/gi";
+import useUserRole from '../../Hooks/useUserRole';
 
 
 const Navber = () => {
     const { user, logout } = UseAuth()
+    const { role, isRoleLoading } = useUserRole()
 
     const handleLogout = async () => {
         logout()
@@ -22,10 +24,11 @@ const Navber = () => {
 
 
     const links = <>
-        <NavLink  to='/'>Home</NavLink>
-        <NavLink  to='/available'>All Camps</NavLink>
-        <NavLink  to='/all-feedback'>Feedbacks</NavLink>
+        <NavLink to='/'>Home</NavLink>
+        <NavLink to='/available'>All Camps</NavLink>
+        <NavLink to='/all-feedback'>Feedbacks</NavLink>
     </>
+
 
     return (
         <div className='bg-base-100  fixed z-50 top-0 w-full border-b-2 border-base-300'>
@@ -35,7 +38,7 @@ const Navber = () => {
                     <div className="hidden lg:block">
                         <Logo></Logo>
                     </div>
-                    
+
                     <div className="dropdown">
                         <div tabIndex={0} className="lg:hidden">
                             <GiHamburgerMenu />
@@ -46,18 +49,22 @@ const Navber = () => {
                             {links}
                             {user &&
                                 <>
-                                    <NavLink to='/dashboard' >Dashboard</NavLink>
+                                    {!isRoleLoading && role === "admin" ?
+                                    <NavLink to='dashboard/stats' className='pl-0'>Dashboard</NavLink>
+                                    :
+                                    <NavLink to='dashboard/analytics' className='pl-0'>Dashboard</NavLink>
+                                }
                                     <NavLink to='/report' >Report</NavLink>
                                 </>
                             }
                         </ul>
                     </div>
-                        <label className="toggle text-base-content ml-3">
+                    <label className="toggle text-base-content ml-3">
                         <input type="checkbox" value="synthwave" className="theme-controller" />
                         <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
                         <svg aria-label="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></g></svg>
                     </label>
-                    
+
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
@@ -65,7 +72,11 @@ const Navber = () => {
                         {links}
                         {user &&
                             <>
-                                <NavLink to='/dashboard' >Dashboard</NavLink>
+                                 {!isRoleLoading && role === "admin" ?
+                                    <NavLink to='dashboard/stats' className='pl-0'>Dashboard</NavLink>
+                                    :
+                                    <NavLink to='dashboard/analytics' className='pl-0'>Dashboard</NavLink>
+                                }
                                 <NavLink to='/report' >Report</NavLink>
                             </>
                         }
@@ -83,7 +94,11 @@ const Navber = () => {
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 -ml-25 mt-3 w-35 p-2 shadow space-y-2"
                             >
                                 {/* <p className='text-base font-semibold'>{user?.displayName}</p> */}
-                                <NavLink to='/dashboard' className='pl-0'>Dashboard</NavLink>
+                                {!isRoleLoading && role === "admin" ?
+                                    <NavLink to='dashboard/stats' className='pl-0'>Dashboard</NavLink>
+                                    :
+                                    <NavLink to='dashboard/analytics' className='pl-0'>Dashboard</NavLink>
+                                }
                                 <button
                                     onClick={handleLogout}
                                     type='submit'

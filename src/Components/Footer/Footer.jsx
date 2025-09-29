@@ -2,8 +2,12 @@
 import { Link } from 'react-router';
 import { FaFacebook, FaPhone, FaEnvelope, FaWhatsapp, FaFacebookMessenger, FaLinkedin } from 'react-icons/fa';
 import Logo from '../SharedComponents/Logo';
+import useUserRole from '../../Hooks/useUserRole';
 
 const Footer = () => {
+
+  const { role, isRoleLoading } = useUserRole()
+
   return (
     <footer className="bg-gray-900 text-white py-8 mt-10">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -20,7 +24,11 @@ const Footer = () => {
           <ul className="space-y-1">
             <li><Link to="/" className="hover:text-blue-400  ">Home</Link></li>
             <li><Link to="/available" className="hover:text-blue-400 ">Available Camps</Link></li>
-            <li><Link to="/dashboard" className="hover:text-blue-400 ">Dashboard</Link></li>
+            {!isRoleLoading && role === "admin" ? 
+            <li><Link to="/dashboard/stats" className="hover:text-blue-400 ">Dashboard</Link></li>
+            :
+            <li><Link to="/dashboard/analytics" className="hover:text-blue-400 ">Dashboard</Link></li>
+          }
             <li><Link to="/all-feedback" className="hover:text-blue-400 ">Feedback & Ratings</Link></li>
           </ul>
         </div>
