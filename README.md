@@ -21,7 +21,7 @@ You can login by Admin credentials to access the Admin/Organizer dashboard and t
 * **Password:** `11ssSS`
   
 ## Dynamic Ratings & Feedbacks, SslCommerz (payment getway)
-![Ratings & Feedbacks](https://i.ibb.co.com/NgwwHDB6/Screenshot-2025-08-09-122157.png)
+![Ratings & Feedbacks](https://res.cloudinary.com/dobtto17a/image/upload/v1791010798/Screenshot_2026-10-03_125839_zlpp4z.png)
 
 
 ## 📌 Core Features
