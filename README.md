@@ -12,14 +12,14 @@ Organizers can easily add, update, and delete camp events while participants can
 Participants can submit feedback and ratings after registration, view comprehensive camp details, and review their payment history complete with transaction IDs. Secure payment processing is supported through Stripe , ensuring smooth transactions for both local and international users. An admin confirmation system ensures registration statuses are accurately managed.
 
 Built with React, TailwindCSS, and DaisyUI, Medicamp features a responsive, mobile-first interface that delivers a smooth and engaging user experience across all devices.
-
+---
 ### 🔑 Demo Admin Credentials
 
 You can login by Admin credentials to access the Admin/Organizer dashboard and test camp management, registration approvals, and analytics:
 
 * **Email:** `shahed@gmail.com`
 * **Password:** `11ssSS`
-  
+---
 ## Dynamic Ratings & Feedbacks, SslCommerz (payment getway)
 ![Ratings & Feedbacks](https://res.cloudinary.com/dobtto17a/image/upload/v1791010798/Screenshot_2026-10-03_125839_zlpp4z.png)
 
